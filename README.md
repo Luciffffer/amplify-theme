@@ -2,6 +2,9 @@
 
 A WordPress theme for the Amplify, a small website with a focus on putting smaller artists in the spotlight.
 
+<br/>
+<br/>
+
 ## How to contribute (setup)
 
 For people in the Amplify team.

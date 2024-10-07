@@ -7,8 +7,9 @@ if ( ! function_exists( 'amplify_setup' ) ) {
         // register menus
         register_nav_menus(
             array(
-                'global' => __( 'global', 'lucifer' ),
-                'footer' => __( 'footer', 'lucifer' )
+                'global' => __( 'global', 'amplify' ),
+                'global-buttons' => __( 'global-buttons', 'amplify' ),
+                'footer' => __( 'footer', 'amplify' )
             )
         );
 
@@ -71,3 +72,9 @@ function amplify_remove_default_post_type_menu_bar( $wp_admin_bar ) {
     $wp_admin_bar->remove_node( 'new-post' );
 }
 add_action( 'admin_bar_menu', 'amplify_remove_default_post_type_menu_bar', 999 );
+
+// enqueue scripts
+function amplify_enqueue_scripts() {
+    wp_enqueue_script( 'hamburger-menu', get_template_directory_uri() . '/assets/js/hamburger-menu.js', array(), '1.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'amplify_enqueue_scripts' );

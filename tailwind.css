@@ -10,3 +10,43 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+    @font-face {
+        font-family: 'Inter';
+        src: url(./assets/fonts/Inter-VariableFont.ttf) format('truetype');
+        font-weight: 100 900;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Inter';
+        src: url(./assets/fonts/Inter-VariableFont-Italic.ttf) format('truetype');
+        font-weight: 100 900;
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: 'Rubik';
+        src: url(./assets/fonts/Rubik-VariableFont.ttf) format('truetype');
+        font-weight: 100 900;
+        font-style: normal;
+    }
+
+    .primary-button-colors {
+        @apply text-white bg-primary hover:bg-primary-400 active:bg-primary-300 transition-colors;
+    }
+
+    .white-button-colors {
+        @apply text-black bg-white;
+    }
+
+    .black-button-colors {
+        @apply text-white bg-black;
+    }
+}
+
+.hamburger-overlay {
+    @apply absolute top-0 left-0 w-full h-screen bg-primary z-40 translate-x-full transition-transform duration-[600ms];
+}
