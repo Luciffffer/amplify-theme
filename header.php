@@ -49,7 +49,7 @@
                         </svg>
                     </button>
 
-                    <div data-hamburger-menu class="hidden duration-700 absolute z-50 top-0 left-0 min-h-screen w-full bg-white transition-transform translate-x-full md:!translate-x-0 md:bg-transparent md:static md:h-full md:block">
+                    <div data-hamburger-menu class="hidden duration-700 absolute z-50 top-0 left-0 min-h-screen w-full bg-white transition-transform translate-x-full md:!translate-x-0 md:bg-transparent md:static md:h-full md:min-h-0 md:block">
                         <div class="relative md:h-full">
                             <div class="absolute top-0 left-0 w-full flex justify-between items-center px-6 h-16 md:hidden">
                                 <a href="/" aria-label="Home">
@@ -93,7 +93,7 @@
                                         <li <?php if ( $current ) echo 'class="bg-gradient-to-r md:bg-gradient-to-b from-primary-500 to-transparent to-15% md:to-25% border-l-[1px] md:border-t-[1px] border-primary md:border-l-0"'; ?>>
                                             <a 
                                                 href="<?php echo $navItem->url; ?>" 
-                                                class="text-body-lg h-full block text-center content-center <?php if ( $current ) echo 'font-medium'; ?>"
+                                                class="text-body-lg h-full md:text-body-base block text-center content-center <?php if ( $current ) echo 'font-medium'; ?>"
                                             >
                                                 <?php echo $navItem->title; ?>
                                             </a>
