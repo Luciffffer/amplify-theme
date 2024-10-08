@@ -14,7 +14,7 @@
         >
             Skip to content
         </a>
-        <header class="absolute top-0 w-full h-16 flex justify-center px-6 text-white <?php if ( is_admin_bar_showing() ) echo 'top-[46px] min-[783px]:!top-8' ?> ">
+        <header class="z-40 absolute top-0 w-full h-16 flex justify-center px-6 text-white <?php if ( is_admin_bar_showing() ) echo 'top-[46px] min-[783px]:!top-8' ?> ">
             <div class="max-w-7xl w-full flex justify-between items-center">
                 <a href="/" aria-label="Home">
                     <?php

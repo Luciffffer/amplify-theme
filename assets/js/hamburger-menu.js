@@ -14,7 +14,6 @@ hamburgerOpen.addEventListener('click', (e) => {
     if (isAnimating) return;
 
     e.preventDefault();
-    console.log('open');
     isOpen = true;
     isAnimating = true;
 
@@ -51,7 +50,6 @@ hamburgerClose.addEventListener('click', (e) => {
     if (isAnimating) return;
 
     e.preventDefault();
-    console.log('close');
     isOpen = false;
     isAnimating = true;
 
