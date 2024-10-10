@@ -12,7 +12,18 @@ get_header();
             </div>
         </div>
         <div class="py-24 flex flex-col gap-12 items-center">
-            <h1 class="font-heading text-heading-lg text-center"><?php the_title(); ?></h1>
+            <h1 class="font-heading text-heading-lg text-center">
+                Error 404: Page Not Found
+            </h1>
+            <p class="text-center text-body-base">
+                The page you are looking for does not exist.<br/>Please check the URL or go back to the homepage.
+            </p>
+            <a 
+                href="<?php echo home_url(); ?>"
+                class="block font-button-base px-6 py-3 w-fit text-center text-white primary-button-colors rounded-md font-medium"
+            >
+                Go home
+            </a>
         </div>
     </div>
 </section>

@@ -45,8 +45,13 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
     .black-button-colors {
         @apply text-white bg-black;
     }
-}
 
-.hamburger-overlay {
-    @apply absolute top-0 left-0 w-full h-screen bg-primary z-40 translate-x-full transition-transform duration-[600ms];
+    @keyframes lucifer-footer-animation {
+        from {
+            border-radius: 100%;
+        }
+        to {
+            border-radius: 0%;
+        }
+    }
 }

@@ -21,6 +21,7 @@ hamburgerOpen.addEventListener('click', (e) => {
     site.ariaHidden = true;
     site.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
+    window.scrollTo(0, 0);
 
     document.body.appendChild(overlay);
     document.body.appendChild(hamburgerMenu);
@@ -77,3 +78,23 @@ window.addEventListener('resize', (e) => {
         hamburgerClose.click();
     }
 });
+
+
+// footer animation
+const dots = document.querySelectorAll('[data-lucan] > *');
+const randomOrder = Array.from({ length: 20 }, () => Math.floor(Math.random() * 4));
+console.log(dots);
+let i = 0;
+console.log(randomOrder);
+
+setInterval(() => {
+    dots.forEach((dot, index) => {
+        if (randomOrder[i] === index) {
+            dot.style.animation = 'lucifer-footer-animation 1000ms forwards';
+        } else {
+            dot.style.animation = 'lucifer-footer-animation 1000ms reverse';
+        }
+    });
+    i++;
+    if (i === 20) i = 0;
+}, 2000);
