@@ -83,7 +83,6 @@ window.addEventListener('resize', (e) => {
 // footer animation
 const dots = document.querySelectorAll('[data-lucan] > *');
 const randomOrder = Array.from({ length: 20 }, () => Math.floor(Math.random() * 4));
-console.log(dots);
 let i = 0;
 console.log(randomOrder);
 
