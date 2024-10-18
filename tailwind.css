@@ -39,11 +39,15 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
     }
 
     .white-button-colors {
-        @apply text-black bg-white;
+        @apply text-black bg-white hover:bg-neutral-100 active:bg-neutral-200 transition-colors;
     }
 
     .black-button-colors {
-        @apply text-white bg-black;
+        @apply text-white bg-black hover:bg-neutral-800 active:bg-neutral-700 transition-colors;
+    }
+
+    .white-border-button-colors {
+        @apply border-white text-white hover:border-neutral-100 active:border-neutral-200 transition-colors;
     }
 
     @keyframes lucifer-footer-animation {
@@ -54,4 +58,48 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
             border-radius: 0%;
         }
     }
+
+    .conic-gradient-artist-cover-left {
+        --start-deg: 19deg;
+        @apply w-full h-full;
+        background: conic-gradient(from var(--start-deg), rgb(134 64 220), #19191D00 20deg);
+    }
+
+    .conic-gradient-artist-cover-right {
+        --start-deg: -19deg;
+        @apply w-full h-full;
+        background: conic-gradient(from var(--start-deg), #19191D00 340deg, rgb(134 64 220) 360deg);
+    }
+}
+
+.hamburger-overlay {
+    @apply absolute top-0 left-0 w-full h-screen bg-primary z-[999999] translate-x-full transition-transform duration-[600ms];
+}
+
+#article-content {
+    @apply font-sans text-body-base;
+}
+
+#article-content p:first-of-type {
+    @apply !text-body-lg font-semibold;
+}
+
+#article-content .wp-block-image {
+    @apply !w-full !h-auto;
+}
+
+#article-content > *:not(p) {
+    @apply py-6;
+}
+
+#article-content .wp-block-image img {
+    @apply w-full h-auto rounded-3xl shadow-card;
+}
+
+#article-content .wp-block-button__link {
+    @apply primary-button-colors py-3 px-6 rounded-md text-button-base;
+}
+
+input::placeholder {
+    @apply font-sans text-body-base font-normal text-neutral-500;
 }

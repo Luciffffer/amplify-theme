@@ -21,14 +21,25 @@ if ( ! function_exists( 'amplify_setup' ) ) {
             array(
                 'labels' => array(
                     'name' => __( 'Artists' ),
-                    'singular_name' => __( 'Artist' )
+                    'singular_name' => __( 'Artist' ),
+                    'add_new_item' => 'Add New Artist Article',
+                    'edit_item' => 'Edit Artist Article',
+                    'all_items' => 'All Artists',
+                    'view_item' => 'View Artist Article',
+                    'search_items' => 'Search Artists',
+                    'not_found' => 'No Artists Found',
+                    'not_found_in_trash' => 'No Artists Found in Trash'
                 ),
+                'hierarchical' => false,
                 'public' => true,
+                'show_ui' => true,
+                'taxonomies' => array( 'genre' ),
                 'has_archive' => true,
-                'rewrite' => array( 'slug' => 'artists' ),
+                'rewrite' => array( 'slug' => 'artist' ),
                 'menu_icon' => 'dashicons-format-audio',
-                'supports' => array( 'title', 'editor', 'thumbnail' ),
+                'supports' => array( 'title', 'editor', 'thumbnail', 'author', 'comments', 'revisions' ),
                 'show_in_rest' => true,
+                'capability_type' => 'post',
             )
         );
 
@@ -50,16 +61,23 @@ if ( ! function_exists( 'amplify_setup' ) ) {
         // genre taxonomy
         register_taxonomy( 'genre', array( 'artists' ),
             array(
-                'hierarchical' => true,
+                'hierarchical' => false,
+                'show_ui' => true,
+                'show_admin_column' => true,
                 'label' => 'Genre',
                 'query_var' => true,
-                'rewrite' => array( 'slug' => 'genre' )
+                'rewrite' => array( 'slug' => 'genre' ),
+                'show_in_rest' => true,
             )
         );
+        register_taxonomy_for_object_type( 'genre', 'artists' );
+
+        // post thumbnail support
+        add_theme_support( 'post-thumbnails' );
 
     }
 }
-add_action( 'after_setup_theme', 'amplify_setup' );
+add_action( 'init', 'amplify_setup' );
 
 // hide default post type
 function amplify_hide_default_post_type() {
@@ -78,3 +96,24 @@ function amplify_enqueue_scripts() {
     wp_enqueue_script( 'hamburger-menu', get_template_directory_uri() . '/assets/js/hamburger-menu.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'amplify_enqueue_scripts' );
+
+function convertDateTimeToHumanReadable( $datetime ) {
+    $date = new DateTime( $datetime );
+    $now = new DateTime();
+
+    $interval = $now->diff( $date );
+
+    if ( $interval->y >= 1 ) {
+        return $interval->y . " year" . ( $interval->y > 1 ? "s" : "" ) . " ago";
+    } else if ( $interval->m >= 1 ) {
+        return $interval->m . " month" . ( $interval->m > 1 ? "s" : "" ) . " ago";
+    } else if ( $interval->d >= 1 ) {
+        return $interval->d . " day" . ( $interval->d > 1 ? "s" : "" ) . " ago";
+    } else if ( $interval->h >= 1 ) {
+        return $interval->h . " hour" . ( $interval->h > 1 ? "s" : "" ) . " ago";
+    } else if ( $interval->i >= 1 ) {
+        return $interval->i . " minute" . ( $interval->i > 1 ? "s" : "" ) . " ago";
+    } else {
+        return "Just now";
+    }
+}

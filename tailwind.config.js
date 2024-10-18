@@ -113,6 +113,9 @@ module.exports = {
           900: '#1B1C1E',
           950: '#0E0E0F'
         },
+      },
+      boxShadow: {
+        'card': '0px 4px 24px rgba(0, 0, 0, 0.25)',
       }
     },
   },

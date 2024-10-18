@@ -59,7 +59,7 @@
                     <div></div>
                 </div>
                 <p class="max-w-52 text-center md:max-w-full md:w-full md:text-right">
-                    Website designed & developer by 
+                    Website designed & developed by 
                     <a href="https://www.linkedin.com/in/tim-noelmans/" class="underline underline-offset-4 inline-flex gap-1 items-center">
                         Tim Noelmans
                         <svg class="mt-1" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
