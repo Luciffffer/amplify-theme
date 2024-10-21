@@ -40,7 +40,7 @@ foreach ($topLayerComments as $comment) {
                     <div class="w-full h-full bg-white bg-opacity-50 rounded-full blur-[670px]"></div>
                 </div>
             </div>
-            <div class="pt-24 lg:pt-16 flex flex-col gap-12 items-center lg:items-end">
+            <div class="pt-24 lg:pt-16 w-full flex flex-col gap-12 items-center lg:items-end">
                 <h1 class="font-heading text-heading-lg text-center lg:text-right xl:text-heading-xl"><?php the_title(); ?></h1>
 
                 <?php 
@@ -78,7 +78,7 @@ foreach ($topLayerComments as $comment) {
 
     <div class="pt-64 px-6 xl:pt-9">
         <div class="max-w-7xl mx-auto xl:grid grid-cols-artist-article xl:gap-32">
-            <div class="max-w-2xl xl:max-w-xl xl:justify-self-end flex flex-col gap-9">
+            <div class="max-w-2xl w-full mx-auto xl:mx-0 xl:max-w-xl xl:justify-self-end flex flex-col gap-9">
 
                 <div class="flex justify-between items-center">
                     <div aria-label="Author and article information" class="flex gap-3">
