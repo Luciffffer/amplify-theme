@@ -79,6 +79,7 @@ if ( ! function_exists( 'amplify_setup' ) ) {
 }
 add_action( 'init', 'amplify_setup' );
 
+
 // hide default post type
 function amplify_hide_default_post_type() {
     remove_menu_page( 'edit.php' );
@@ -91,12 +92,46 @@ function amplify_remove_default_post_type_menu_bar( $wp_admin_bar ) {
 }
 add_action( 'admin_bar_menu', 'amplify_remove_default_post_type_menu_bar', 999 );
 
+
 // enqueue scripts
 function amplify_enqueue_scripts() {
     wp_enqueue_script( 'hamburger-menu', get_template_directory_uri() . '/assets/js/hamburger-menu.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'amplify_enqueue_scripts' );
 
+
+// add custom field
+function amplify_meta_artist_spotify() {
+    add_meta_box( 'amplify_meta_artist_spotify', 'Spotify URL', 'amplify_meta_artist_spotify_callback', 'artists', 'normal', 'high' );
+}
+add_action( 'add_meta_boxes', 'amplify_meta_artist_spotify' );
+
+function amplify_meta_artist_spotify_callback( $post ) {
+    wp_nonce_field( basename( __FILE__ ), 'amplify_meta_artist_spotify_nonce' );
+
+    $amplify_meta_artist_spotify = get_post_meta( $post->ID, 'amplify_meta_artist_spotify', true );
+
+    echo '<label for="amplify_meta_artist_spotify">Spotify Artist URL: </label>';
+    echo '<input type="text" id="amplify_meta_artist_spotify" name="amplify_meta_artist_spotify" value="' . esc_attr( $amplify_meta_artist_spotify ) . '" />';
+}
+
+function amplify_meta_artist_spotify_save( $post_id ) {
+    if ( ! isset( $_POST['amplify_meta_artist_spotify_nonce'] ) || ! wp_verify_nonce( $_POST['amplify_meta_artist_spotify_nonce'], basename( __FILE__ ) ) ) {
+        return;
+    }
+
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+
+    if ( isset( $_POST['amplify_meta_artist_spotify'] ) ) {
+        update_post_meta( $post_id, 'amplify_meta_artist_spotify', sanitize_text_field( $_POST['amplify_meta_artist_spotify'] ) );
+    }
+}
+add_action( 'save_post', 'amplify_meta_artist_spotify_save' );
+
+
+// functions
 function convertDateTimeToHumanReadable( $datetime ) {
     $date = new DateTime( $datetime );
     $now = new DateTime();

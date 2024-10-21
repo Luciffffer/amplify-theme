@@ -116,6 +116,9 @@ module.exports = {
       },
       boxShadow: {
         'card': '0px 4px 24px rgba(0, 0, 0, 0.25)',
+      },
+      gridTemplateColumns: {
+        'artist-article': '1fr 24.1rem',
       }
     },
   },

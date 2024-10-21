@@ -5,11 +5,6 @@ global $wp;
 
 setup_postdata($post);
 
-// $allComments = get_comments(array(
-//     'post_id' => get_the_ID(),
-//     'status' => 'approve'
-// ));
-
 $topLayerComments = get_comments(array(
     'post_id' => get_the_ID(),
     'parent' => 0
@@ -39,14 +34,14 @@ foreach ($topLayerComments as $comment) {
 <section>
 
     <div class="px-6 pt-16 text-white bg-black relative ">
-        <div class="max-w-7xl mx-auto flex flex-col jusitfy-center gap-16 relative">
+        <div class="max-w-7xl mx-auto flex flex-col jusitfy-center gap-16 relative lg:flex-row lg:pt-20 lg:pb-12 xl:gap-32">
             <div aria-hidden="true" class="w-64 aspect-square absolute -top-40 -translate-x-1/2 left-14">
                 <div class="relative w-full h-full">
                     <div class="w-full h-full bg-white bg-opacity-50 rounded-full blur-[670px]"></div>
                 </div>
             </div>
-            <div class="pt-24 flex flex-col gap-12 items-center">
-                <h1 class="font-heading text-heading-lg text-center"><?php the_title(); ?></h1>
+            <div class="pt-24 lg:pt-16 flex flex-col gap-12 items-center lg:items-end">
+                <h1 class="font-heading text-heading-lg text-center lg:text-right xl:text-heading-xl"><?php the_title(); ?></h1>
 
                 <?php 
                     $terms = get_the_terms( get_the_ID(), 'genre' );
@@ -81,205 +76,215 @@ foreach ($topLayerComments as $comment) {
         </div>
     </div>
 
-    <div class="pt-64 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col gap-9">
+    <div class="pt-64 px-6 xl:pt-9">
+        <div class="max-w-7xl mx-auto xl:grid grid-cols-artist-article xl:gap-32">
+            <div class="max-w-2xl xl:max-w-xl xl:justify-self-end flex flex-col gap-9">
 
-            <div class="flex justify-between items-center">
-                <div aria-label="Author and article information" class="flex gap-3">
-                    <?php echo get_avatar( get_the_author_meta( 'ID' ), 48, '', '', array( 'class' => 'rounded-full aspect-square w-12' ) ); ?>
-                    <div class="flex flex-col">
-                        <p><?php echo (empty(get_the_author_meta( 'display_name' )) ? "Unknown" : get_the_author_meta( 'display_name' )); ?></p>
-                        <p class="text-body-sm italic"><?php echo get_the_date(); ?></p>
+                <div class="flex justify-between items-center">
+                    <div aria-label="Author and article information" class="flex gap-3">
+                        <?php echo get_avatar( get_the_author_meta( 'ID' ), 48, '', '', array( 'class' => 'rounded-full aspect-square w-12' ) ); ?>
+                        <div class="flex flex-col">
+                            <p><?php echo (empty(get_the_author_meta( 'display_name' )) ? "Unknown" : get_the_author_meta( 'display_name' )); ?></p>
+                            <p class="text-body-sm italic"><?php echo get_the_date(); ?></p>
+                        </div>
                     </div>
+            
+                    <style>
+                        .sfsi_widget {
+                            height: fit-content !important;
+                            min-height: auto !important;
+                        }
+
+                        .sfsi_wDiv {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 1rem;
+                            margin-top: 1rem;
+                            width: 100% !important;
+                            margin: 0;
+                        }
+
+                        .sfsi_wicons {
+                            width: 1.5rem !important;
+                            height: 1.5rem !important;
+                            margin: 0 !important;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+
+                        .sfsi_wicons * {
+                            width: 1.5rem !important;
+                            height: 1.5rem !important;
+                        }
+
+                        .sfsi_wicons img {
+                            display: none;
+                        }
+
+                        .sfsi_wDiv .sfsi_wicons:first-child {
+                            background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/facebook-icon.svg');
+                        }
+
+                        .sfsi_wDiv .sfsi_wicons:nth-child(2) {
+                            background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/x-icon.svg');
+                        }
+
+                        .sfsi_wDiv .sfsi_wicons:nth-child(3) {
+                            background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/whatsapp-icon.svg');
+                        }
+                    </style>
+                    <?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?>
+                    
+                    </ul>
                 </div>
-           
-                <style>
-                    .sfsi_widget {
-                        height: fit-content !important;
-                        min-height: auto !important;
-                    }
 
-                    .sfsi_wDiv {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 1rem;
-                        margin-top: 1rem;
-                        width: 100% !important;
-                        margin: 0;
-                    }
+                <hr class="h-[2px] bg-black rounded-full">
 
-                    .sfsi_wicons {
-                        width: 1.5rem !important;
-                        height: 1.5rem !important;
-                        margin: 0 !important;
-                        background-size: cover;
-                        background-repeat: no-repeat;
-                    }
-
-                    .sfsi_wicons * {
-                        width: 1.5rem !important;
-                        height: 1.5rem !important;
-                    }
-
-                    .sfsi_wicons img {
-                        display: none;
-                    }
-
-                    .sfsi_wDiv .sfsi_wicons:first-child {
-                        background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/facebook-icon.svg');
-                    }
-
-                    .sfsi_wDiv .sfsi_wicons:nth-child(2) {
-                        background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/x-icon.svg');
-                    }
-
-                    .sfsi_wDiv .sfsi_wicons:nth-child(3) {
-                        background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/whatsapp-icon.svg');
-                    }
-                </style>
-                <?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?>
-                 
-                </ul>
+                <div id="article-content" class="flex flex-col gap-6">
+                    <?php the_content(); ?>
+                    <hr aria-hidden="true" class="h-[2px] rounded-full bg-black" style="padding: 0 !important;">
+                </div>
             </div>
 
-            <hr class="h-[2px] bg-black rounded-full">
-
-            <div id="article-content" class="flex flex-col gap-6">
-                <?php the_content(); ?>
-                <hr aria-hidden="true" class="h-[2px] rounded-full bg-black" style="padding: 0 !important;">
-            </div>
+            <aside class="hidden xl:block p-1 pt-36">
+                <div data-artist-spotify></div>
+            </aside>
         </div>
     </div>
 
 </section>
 
 <section class="py-12 px-6">
-    <div class="w-full mx-auto flex flex-col gap-9">
-        <h2 class="font-heading text-heading-sm">Comments</h2>
-        
-        <div data-main-comment-container>
-            <form data-comment-main-placeholder action="#" class="flex gap-3 items-start">
-                <img aria-hidden src="<?php echo is_user_logged_in() ? get_avatar_url(get_current_user_id()) : get_avatar_url(0); ?>" alt="Default user picture" class="w-12 h-12 aspect-square rounded-full">
-                
-                <button data-comment-main-form-button class="w-full bg-neutral-50 rounded-md p-2 focus:outline-none active:bg-neutral-100 text-left text-neutral-500">
-                    Leave a comment...
-                </button>
-            </form>
+    <div class="xl:grid xl:grid-cols-artist-article xl:max-w-7xl xl:mx-auto xl:gap-32">
 
-            <form data-comment-form action="<?php echo site_url('/wp-comments-post.php'); ?>" method="post" class="flex w-full gap-3 hidden">
-                
-                <img aria-hidden src="<?php echo is_user_logged_in() ? get_avatar_url(get_current_user_id()) : get_avatar_url(0); ?>" alt="Default user picture" class="w-12 h-12 aspect-square rounded-full">
+        <div class="max-w-2xl xl:max-w-xl xl:justify-self-end w-full mx-auto xl:mx-0 flex flex-col gap-9">
+            <h2 class="font-heading text-heading-sm">Comments</h2>
+            
+            <div data-main-comment-container>
+                <form data-comment-main-placeholder action="#" class="flex gap-3 items-start">
+                    <img aria-hidden src="<?php echo is_user_logged_in() ? get_avatar_url(get_current_user_id()) : get_avatar_url(0); ?>" alt="Default user picture" class="w-12 h-12 aspect-square rounded-full">
+                    
+                    <button data-comment-main-form-button class="w-full bg-neutral-50 rounded-md p-2 focus:outline-none active:bg-neutral-100 text-left text-neutral-500">
+                        Leave a comment...
+                    </button>
+                </form>
 
-                <div class="flex flex-col gap-6 w-full">
-                    <input type="hidden" name="comment_post_ID" value="<?php echo $post->ID; ?>" />
-                    <input type="hidden" name="comment_parent" value="0" />
+                <form data-comment-form action="<?php echo site_url('/wp-comments-post.php'); ?>" method="post" class="flex w-full gap-3 hidden">
+                    
+                    <img aria-hidden src="<?php echo is_user_logged_in() ? get_avatar_url(get_current_user_id()) : get_avatar_url(0); ?>" alt="Default user picture" class="w-12 h-12 aspect-square rounded-full">
 
-                    <div class="flex flex-col gap-3">
-                        <div>
-                            <label for="comment" class="sr-only">Comment</label>
-                            <textarea
-                                name="comment" 
-                                id="comment" 
-                                cols="30" 
-                                rows="4" 
-                                class="w-full bg-neutral-50 p-2 rounded-lg focus:outline-primary-50" 
-                                placeholder="Comment"
-                                required
-                            ></textarea>
-                            <span id="comment-error" class="text-red-500 text-body-sm hidden" data-comment-error></span>
+                    <div class="flex flex-col gap-6 w-full">
+                        <input type="hidden" name="comment_post_ID" value="<?php echo $post->ID; ?>" />
+                        <input type="hidden" name="comment_parent" value="0" />
+
+                        <div class="flex flex-col gap-3">
+                            <div>
+                                <label for="comment" class="sr-only">Comment</label>
+                                <textarea
+                                    name="comment" 
+                                    id="comment" 
+                                    cols="30" 
+                                    rows="4" 
+                                    class="w-full bg-neutral-50 p-2 rounded-lg focus:outline-primary-50" 
+                                    placeholder="Comment"
+                                    required
+                                ></textarea>
+                                <span id="comment-error" class="text-red-500 text-body-sm hidden" data-comment-error></span>
+                            </div>
+
+                            <?php if (!is_user_logged_in()) : ?>
+                                <div>
+                                    <label for="author" class="sr-only">Name</label>
+                                    <input 
+                                        type="text" 
+                                        name="author" 
+                                        id="author" 
+                                        class="w-full bg-neutral-50 rounded-md focus:outline-primary-50 p-2" 
+                                        placeholder="Display name"
+                                        required
+                                    >
+                                    <span id="author-error" class="text-red-500 text-body-sm hidden" data-author-error></span>
+                                </div>
+
+                                <div>
+                                    <label for="email" class="sr-only">Email</label>
+                                    <input 
+                                        type="email" 
+                                        name="email" 
+                                        id="email" 
+                                        class="w-full bg-neutral-50 rounded-md focus:outline-primary-50 p-2" 
+                                        placeholder="Email"
+                                        required
+                                    >
+                                    <span id="email-error" class="text-red-500 text-body-sm hidden" data-email-error></span>
+                                </div>
+                            <?php endif; ?>
                         </div>
 
-                        <?php if (!is_user_logged_in()) : ?>
-                            <div>
-                                <label for="author" class="sr-only">Name</label>
-                                <input 
-                                    type="text" 
-                                    name="author" 
-                                    id="author" 
-                                    class="w-full bg-neutral-50 rounded-md focus:outline-primary-50 p-2" 
-                                    placeholder="Display name"
-                                    required
-                                >
-                                <span id="author-error" class="text-red-500 text-body-sm hidden" data-author-error></span>
-                            </div>
-
-                            <div>
-                                <label for="email" class="sr-only">Email</label>
-                                <input 
-                                    type="email" 
-                                    name="email" 
-                                    id="email" 
-                                    class="w-full bg-neutral-50 rounded-md focus:outline-primary-50 p-2" 
-                                    placeholder="Email"
-                                    required
-                                >
-                                <span id="email-error" class="text-red-500 text-body-sm hidden" data-email-error></span>
-                            </div>
-                        <?php endif; ?>
+                        <div class="flex gap-1 flex-row-reverse justify-end items-center">
+                            <button type="submit" class="primary-button-colors text-button-base px-6 py-2 rounded-md">Post Comment</button>
+                            <button data-comment-cancel class="black-button-colors text-button-base px-6 py-2 rounded-md">Cancel</button>
+                        </div>
                     </div>
 
-                    <div class="flex gap-1 flex-row-reverse justify-end items-center">
-                        <button type="submit" class="primary-button-colors text-button-base px-6 py-2 rounded-md">Post Comment</button>
-                        <button data-comment-cancel class="black-button-colors text-button-base px-6 py-2 rounded-md">Cancel</button>
-                    </div>
-                </div>
+                </form>
+            </div>
 
-            </form>
-        </div>
-
-        <div>
-            <?php if ($topLayerComments) : ?>
-            
-                <ul class="flex flex-col gap-6">
-                    <?php foreach ($topLayerComments as $comment) : ?>
-                        <li class="flex flex-col gap-6">
-                            <div class="flex gap-3" id="comment-<?php echo $comment->comment_ID; ?>">
-                                <img aria-hidden src="<?php echo get_avatar_url($comment->user_id); ?>" alt="User picture" class="w-12 h-12 aspect-square rounded-full">
-                                <div class="flex flex-col gap-2">
-                                    <div class="flex gap-2">
-                                        <p class="text-body-sm font-semibold"><?php echo $comment->comment_author; ?></p>
-                                        <?php if ($comment->user_id == $post->post_author) : ?>
-                                            <span class="text-body-sm text-primary">Author</span>
-                                        <?php endif; ?>
-                                        <p class="text-body-sm text-neutral-500"><?php echo convertDateTimeToHumanReadable($comment->comment_date); ?></p>
-                                    </div>
-                                    <p class="font-medium"><?php echo esc_html($comment->comment_content); ?></p>
-                                    <button data-comment-reply data-main data-comment-id="<?php echo $comment->comment_ID ?>" class="text-body-sm text-neutral-500 w-fit">
-                                        Reply
-                                    </button>
-                                </div>
-                            </div>
-                    
-                            <ul class="flex flex-col gap-6 <?php if (empty($comment->comment_children)) echo "hidden"; ?>" aria-label="Reactions">
-                                <?php foreach ($comment->comment_children as $childComment) : ?>
-                                    <li class="pl-10 flex gap-3" id="comment-<?php echo $childComment->comment_ID; ?>">
-                                        <img aria-hidden src="<?php echo get_avatar_url($childComment->user_id); ?>" alt="User picture" class="w-12 h-12 aspect-square rounded-full">
-                                        <div class="flex flex-col gap-2">
-                                            <div class="flex gap-2">
-                                                <p class="text-body-sm font-semibold"><?php echo $childComment->comment_author; ?></p>
-                                                <?php if ($childComment->user_id == $post->post_author) : ?>
-                                                    <span class="text-body-sm text-primary">Author</span>
-                                                <?php endif; ?>
-                                                <p class="text-body-sm text-neutral-500"><?php echo convertDateTimeToHumanReadable($childComment->comment_date); ?></p>
-                                            </div>
-                                            <p class="font-medium"><?php echo esc_html($childComment->comment_content); ?></p>
-                                            <button data-comment-reply data-child data-comment-id="<?php echo $childComment->comment_ID ?>" class="text-body-sm text-neutral-500 w-fit">
-                                                Reply
-                                            </button>
+            <div>
+                <?php if ($topLayerComments) : ?>
+                
+                    <ul class="flex flex-col gap-6">
+                        <?php foreach ($topLayerComments as $comment) : ?>
+                            <li class="flex flex-col gap-6">
+                                <div class="flex gap-3" id="comment-<?php echo $comment->comment_ID; ?>">
+                                    <img aria-hidden src="<?php echo get_avatar_url($comment->user_id); ?>" alt="User picture" class="w-12 h-12 aspect-square rounded-full">
+                                    <div class="flex flex-col gap-2">
+                                        <div class="flex gap-2">
+                                            <p class="text-body-sm font-semibold"><?php echo $comment->comment_author; ?></p>
+                                            <?php if ($comment->user_id == $post->post_author) : ?>
+                                                <span class="text-body-sm text-primary">Author</span>
+                                            <?php endif; ?>
+                                            <p class="text-body-sm text-neutral-500"><?php echo convertDateTimeToHumanReadable($comment->comment_date); ?></p>
                                         </div>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
+                                        <p class="font-medium"><?php echo esc_html($comment->comment_content); ?></p>
+                                        <button data-comment-reply data-main data-comment-id="<?php echo $comment->comment_ID ?>" class="text-body-sm text-neutral-500 w-fit">
+                                            Reply
+                                        </button>
+                                    </div>
+                                </div>
+                        
+                                <ul class="flex flex-col gap-6 <?php if (empty($comment->comment_children)) echo "hidden"; ?>" aria-label="Reactions">
+                                    <?php foreach ($comment->comment_children as $childComment) : ?>
+                                        <li class="pl-10 flex gap-3" id="comment-<?php echo $childComment->comment_ID; ?>">
+                                            <img aria-hidden src="<?php echo get_avatar_url($childComment->user_id); ?>" alt="User picture" class="w-12 h-12 aspect-square rounded-full">
+                                            <div class="flex flex-col gap-2">
+                                                <div class="flex gap-2">
+                                                    <p class="text-body-sm font-semibold"><?php echo $childComment->comment_author; ?></p>
+                                                    <?php if ($childComment->user_id == $post->post_author) : ?>
+                                                        <span class="text-body-sm text-primary">Author</span>
+                                                    <?php endif; ?>
+                                                    <p class="text-body-sm text-neutral-500"><?php echo convertDateTimeToHumanReadable($childComment->comment_date); ?></p>
+                                                </div>
+                                                <p class="font-medium"><?php echo esc_html($childComment->comment_content); ?></p>
+                                                <button data-comment-reply data-child data-comment-id="<?php echo $childComment->comment_ID ?>" class="text-body-sm text-neutral-500 w-fit">
+                                                    Reply
+                                                </button>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
 
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
 
-            <?php else : ?>
-                <p class="text-center">No comments yet</p>
-            <?php endif; ?>
+                <?php else : ?>
+                    <p class="text-center">No comments yet</p>
+                <?php endif; ?>
+            </div>
         </div>
+    
     </div>
 </section>
 
@@ -296,6 +301,9 @@ foreach ($topLayerComments as $comment) {
     })
 
     function handleScollWithCoverAnimation(e) {
+        // don't run if screen isn't mobile
+        if (window.innerWidth > 768) return;
+
         if (window.scrollY > 200) {
             window.removeEventListener('scroll', handleScollWithCoverAnimation);
             const interval = setInterval(intervalFunc, 5);
@@ -485,6 +493,21 @@ foreach ($topLayerComments as $comment) {
 
     const childCommentReplyButtons = document.querySelectorAll('[data-child-comment-reply]');
 
+</script>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+<script>
+    window.onSpotifyIframeApiReady = (IFrameAPI) => {
+        const aside = document.querySelector('[data-artist-spotify]');
+        const spotifyUrl = '<?php echo get_post_meta(get_the_ID(), 'amplify_meta_artist_spotify', true); ?>';
+        
+        if (spotifyUrl === '') {
+            aside.innerHTML = '<p class="text-center">No Spotify URL provided</p>';
+            return;
+        }
+
+        const callback = (EmbedController) = {};
+        IFrameAPI.createController(aside, { uri: spotifyUrl }, callback);
+    };
 </script>
 <?php
 
