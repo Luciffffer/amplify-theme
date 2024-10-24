@@ -50,6 +50,10 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
         @apply border-white text-white hover:border-neutral-100 active:border-neutral-200 transition-colors;
     }
 
+    .black-border-button-colors {
+        @apply border-black text-black hover:border-neutral-800 active:border-neutral-700 transition-colors;
+    }
+
     @keyframes lucifer-footer-animation {
         from {
             border-radius: 100%;
@@ -69,6 +73,10 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
         --start-deg: -19deg;
         @apply w-full h-full;
         background: conic-gradient(from var(--start-deg), #19191D00 340deg, rgb(134 64 220) 360deg);
+    }
+
+    .bg-radial-gradient-hero {
+        background: radial-gradient(ellipse at center, #fbfcfd21 0%, #FBFCFD00 80%);
     }
 }
 
