@@ -47,7 +47,7 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
     }
 
     .white-border-button-colors {
-        @apply border-white text-white hover:border-neutral-100 active:border-neutral-200 transition-colors;
+        @apply border-white text-white hover:border-neutral-100 hover:text-neutral-100 active:text-neutral-200 active:border-neutral-200 transition-colors;
     }
 
     .black-border-button-colors {

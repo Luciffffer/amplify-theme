@@ -43,6 +43,11 @@ $podcasts = $podcasts->posts;
     <div class="max-w-7xl mx-auto flex flex-col gap-20 md:flex-row relative">
         <div class="pt-32 flex flex-col gap-12 items-center md:items-end w-full">
             <h1 class="font-heading text-heading-lg text-center md:text-right xl:text-heading-xl xl:max-w-xl">Putting Artists In The Spotlight</h1>
+            <p
+                class="text-center md:text-right xl:max-w-lg"
+            >
+                Amplify is an easy way to discover new small artists. Just filter by genre you like and expand your soundscape!
+            </p>
             <a 
                 href="#"
                 class="block font-button-base px-6 py-3 w-fit text-center text-white primary-button-colors rounded-md"
@@ -51,7 +56,7 @@ $podcasts = $podcasts->posts;
             </a>
         </div>
         <article class="w-full mx-auto max-w-md bg-white text-black rounded-3xl -mb-48 shadow-card p-6 flex flex-col gap-6 md:-mb-32">
-            <div class="aspect-square w-full bg-no-repeat bg-left-top bg-contain rounded-3xl" style="background-image: url(<?php echo get_the_post_thumbnail_url($artists[0]->ID); ?>);"></div>
+            <div class="aspect-square w-full bg-cover bg-no-repeat bg-left-top rounded-3xl" style="background-image: url(<?php echo get_the_post_thumbnail_url($artists[0]->ID); ?>);"></div>
             <h2 class="font-heading text-heading-sm"><?php echo $artists[0]->post_title; ?></h2>
             <?php
             $genres = get_the_terms($artists[0]->ID, 'genre');
@@ -61,7 +66,7 @@ $podcasts = $podcasts->posts;
                     <?php
                     foreach ($genres as $genre) :
                     ?>
-                        <li class="rounded-md px-6 py-2 border-2 black-border-button-colors">
+                        <li class="rounded-md px-6 py-2 border-2 black-border-button-colors text-body-sm">
                             <a href="<?php echo get_term_link( $genre ); ?>">
                                 <?php echo $genre->name; ?>
                             </a>

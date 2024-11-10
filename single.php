@@ -155,6 +155,37 @@ foreach ($topLayerComments as $comment) {
 
 </section>
 
+<?php
+$references = get_post_meta(get_the_ID(), 'amplify_meta_references', true);
+if (!empty($references)) :
+?>
+
+<section class="pt-12 px-6">
+    <div class="xl:grid xl:grid-cols-artist-article xl:max-w-7xl xl:mx-auto xl:gap-32">
+        <div class="max-w-2xl xl:max-w-xl xl:justify-self-end w-full mx-auto xl:mx-0 flex flex-col gap-12">
+            <div class="flex flex-col gap-9">
+                <h2 class="font-heading text-heading-sm">References</h2>
+                <ul class="flex flex-col gap-6 text-body-sm italic ml-6 -indent-6">
+                    <?php foreach ($references as $index => $reference) : ?>
+                        <li class="flex flex-col gap-3">
+                            <p>
+                                <?php 
+                                $urlPattern = '/(https?:\/\/[^\s]+)/';
+                                $reference = preg_replace($urlPattern, '<a style="overflow-wrap: break-word;width: 100%;" href="$1" target="_blank" class="text-primary">$1</a>', $reference);
+                                echo $reference; 
+                                ?>
+                            </p>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <hr aria-hidden="true" class="h-[2px] rounded-full bg-black" style="padding: 0 !important;">
+        </div>
+    </div>
+</section>
+
+<?php endif; ?>
+
 <section class="py-12 px-6">
     <div class="xl:grid xl:grid-cols-artist-article xl:max-w-7xl xl:mx-auto xl:gap-32">
 
