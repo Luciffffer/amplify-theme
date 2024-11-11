@@ -1,6 +1,6 @@
 <?php $users = get_users( array( 'orderby' => 'registered', 'order' => 'ASC' ) ); ?>
 <section class="px-6 my-32">
-    <div class="max-w-7xl mx-auto flex flex-col gap-24">
+    <div class="max-w-7xl mx-auto flex flex-col gap-16">
         <div class="text-center flex flex-col gap-6">
             <h2 id="who-is-who" class="font-heading text-heading-base">Wie Zijn De Schrijvers?</h2>
             <p class="max-w-sm mx-auto">Onze filosofie is gemakkelijk: schrijf wat je echt voelt in je hart!</p>
@@ -89,6 +89,7 @@
                     data-author-spotify
                     href="<?php echo get_the_author_meta( 'spotify', $users[0]->ID ); ?>" 
                     aria-label="<?php echo $users[0]->display_name ?>'s Spotify"
+                    class="<?php if (empty(get_the_author_meta( 'spotify', $users[0]->ID ))) echo "hidden" ?>"
                 >
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -220,7 +221,14 @@
         document.querySelector('[data-author-quote]').textContent = quote || 'No quote available';
         document.querySelector('[data-author-description]').textContent = description || 'No description available';
         document.querySelector('[data-author-funfact]').textContent = funFact || 'No fun fact available';
-        document.querySelector('[data-author-spotify]').href = spotify || '#';
+
+        if (spotify) {
+            document.querySelector('[data-author-spotify]').classList.remove('hidden');
+            document.querySelector('[data-author-spotify]').href = spotify;
+        } else {
+            document.querySelector('[data-author-spotify]').classList.add('hidden');
+        }
+        
         document.querySelector('[data-author-linkedin]').href = linkedin || '#';
     }
 </script>

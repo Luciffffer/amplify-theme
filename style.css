@@ -769,19 +769,14 @@ video {
   margin-right: auto;
 }
 
-.my-12 {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+.my-32 {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
 }
 
 .my-72 {
   margin-top: 18rem;
   margin-bottom: 18rem;
-}
-
-.my-32 {
-  margin-top: 8rem;
-  margin-bottom: 8rem;
 }
 
 .-mb-48 {
@@ -929,6 +924,10 @@ video {
   max-width: 13rem;
 }
 
+.max-w-64 {
+  max-width: 16rem;
+}
+
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -1071,10 +1070,6 @@ video {
 
 .gap-\[6px\] {
   gap: 6px;
-}
-
-.gap-24 {
-  gap: 6rem;
 }
 
 .overflow-hidden {
@@ -1801,6 +1796,10 @@ input::placeholder {
     justify-content: space-between;
   }
 
+  .md\:gap-16 {
+    gap: 4rem;
+  }
+
   .md\:gap-3 {
     gap: 0.75rem;
   }
@@ -1811,10 +1810,6 @@ input::placeholder {
 
   .md\:gap-9 {
     gap: 2.25rem;
-  }
-
-  .md\:gap-16 {
-    gap: 4rem;
   }
 
   .md\:border-l-0 {
