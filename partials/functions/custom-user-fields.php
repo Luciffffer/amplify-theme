@@ -21,6 +21,13 @@ function amplify_custom_user_fields( $user ) {
             </td>
         </tr>
         <tr>
+            <th><label for="whois-roles">Roles:</label></th>
+            <td>
+                <input type="text" name="whois-roles" id="whois-roles" value="<?php echo esc_attr( get_the_author_meta( 'whois-roles', $user->ID ) ) ?>" class="regular-text">
+                <p>Example: HR & SPOC</p>
+            </td>
+        </tr>
+        <tr>
             <th><label for="whois-description">Description:</label></th>
             <td>
                 <textarea rows="5" name="whois-description" id="whois-description" class="regular-text"><?php echo esc_attr( get_the_author_meta( 'whois-description', $user->ID ) ) ?></textarea>
@@ -60,6 +67,7 @@ function amplify_save_custom_user_fields( $user_id ) {
     }
 
     update_user_meta( $user_id, 'quote', $_POST['quote'] );
+    update_user_meta( $user_id, 'whois-roles', $_POST['whois-roles'] );
     update_user_meta( $user_id, 'whois-description', $_POST['whois-description'] );
     update_user_meta( $user_id, 'fun-fact', $_POST['fun-fact'] );
     update_user_meta( $user_id, 'spotify', $_POST['spotify'] );

@@ -78,6 +78,10 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
     .bg-radial-gradient-hero {
         background: radial-gradient(ellipse at center, #fbfcfd21 0%, #FBFCFD00 80%);
     }
+
+    .grid-author-responsive {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
 .hamburger-overlay {
@@ -110,4 +114,13 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
 
 input::placeholder {
     @apply font-sans text-body-base font-normal text-neutral-500;
+}
+
+.scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
 }

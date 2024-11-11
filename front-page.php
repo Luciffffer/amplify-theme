@@ -23,11 +23,11 @@ $podcasts = $podcasts->posts;
 // begin editing html below
 ?>
 
-<section class="px-6 pt-44 text-white bg-black relative">
+<section class="px-6 pt-36 text-white bg-black relative">
     <div aria-hidden="true" class="h-full w-full aspect-square absolute top-0 left-0 overflow-hidden">
         <div class="w-full h-full px-6">
             <div class="relative w-full h-full max-w-7xl mx-auto">
-                <div class="w-[1000px] aspect-square absolute -translate-x-1/2 -translate-y-1/2 top-48 left-1/2 md:top-[30%] md:left-[2rem]">
+                <div class="w-[1000px] aspect-square absolute -translate-x-1/2 -translate-y-1/2 top-48 left-1/2 md:top-[25%] md:left-[2rem]">
                     <div class="relative w-full h-full">
                         <svg class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2" width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -43,11 +43,6 @@ $podcasts = $podcasts->posts;
     <div class="max-w-7xl mx-auto flex flex-col gap-20 md:flex-row relative">
         <div class="pt-32 flex flex-col gap-12 items-center md:items-end w-full">
             <h1 class="font-heading text-heading-lg text-center md:text-right xl:text-heading-xl xl:max-w-xl">Putting Artists In The Spotlight</h1>
-            <p
-                class="text-center md:text-right xl:max-w-lg"
-            >
-                Amplify is an easy way to discover new small artists. Just filter by genre you like and expand your soundscape!
-            </p>
             <a 
                 href="#"
                 class="block font-button-base px-6 py-3 w-fit text-center text-white primary-button-colors rounded-md"
