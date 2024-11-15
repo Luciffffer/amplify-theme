@@ -61,7 +61,7 @@ $podcasts = $podcasts->posts;
                     <?php
                     foreach ($genres as $genre) :
                     ?>
-                        <li class="rounded-md px-6 py-2 border-2 black-border-button-colors text-body-sm">
+                        <li class="rounded-md px-6 py-2 border-2 black-border-button-colors">
                             <a href="<?php echo get_term_link( $genre ); ?>">
                                 <?php echo $genre->name; ?>
                             </a>

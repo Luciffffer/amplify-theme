@@ -68,6 +68,7 @@ if ( ! function_exists( 'amplify_setup' ) ) {
                 'query_var' => true,
                 'rewrite' => array( 'slug' => 'genre' ),
                 'show_in_rest' => true,
+                'publicly_queryable' => false
             )
         );
         register_taxonomy_for_object_type( 'genre', 'artists' );

@@ -34,12 +34,18 @@ foreach ($topLayerComments as $comment) {
 <section>
 
     <div class="px-6 pt-16 text-white bg-black relative ">
-        <div class="max-w-7xl mx-auto flex flex-col jusitfy-center gap-16 relative lg:flex-row lg:pt-20 lg:pb-12 xl:gap-32">
-            <div aria-hidden="true" class="w-64 aspect-square absolute -top-40 -translate-x-1/2 left-14">
-                <div class="relative w-full h-full">
-                    <div class="w-full h-full bg-white bg-opacity-50 rounded-full blur-[670px]"></div>
+        <div aria-hidden="true" class="h-full w-full aspect-square absolute top-0 left-0 overflow-hidden">
+            <div class="w-full h-full px-6">
+                <div class="relative w-full h-full max-w-7xl mx-auto">
+                    <div class="w-[1000px] aspect-square absolute -translate-x-1/2 -translate-y-1/2 top-0 left-12">
+                        <div class="relative w-full h-full">
+                            <div class="w-full h-full bg-radial-gradient-hero blur-3xl"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="max-w-7xl mx-auto flex flex-col jusitfy-center gap-16 relative lg:flex-row lg:pt-20 lg:pb-12 xl:gap-32">
             <div class="pt-24 lg:pt-16 w-full flex flex-col gap-12 items-center lg:items-end">
                 <h1 class="font-heading text-heading-lg text-center lg:text-right xl:text-heading-xl"><?php the_title(); ?></h1>
 

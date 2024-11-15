@@ -1,5 +1,5 @@
 <?php $users = get_users( array( 'orderby' => 'registered', 'order' => 'ASC' ) ); ?>
-<section class="px-6 my-32">
+<section class="px-6 py-32">
     <div class="max-w-7xl mx-auto flex flex-col gap-16">
         <div class="text-center flex flex-col gap-6">
             <h2 id="who-is-who" class="font-heading text-heading-base">Wie Zijn De Schrijvers?</h2>
@@ -88,6 +88,7 @@
                 <a 
                     data-author-spotify
                     href="<?php echo get_the_author_meta( 'spotify', $users[0]->ID ); ?>" 
+                    target="_blank"
                     aria-label="<?php echo $users[0]->display_name ?>'s Spotify"
                     class="<?php if (empty(get_the_author_meta( 'spotify', $users[0]->ID ))) echo "hidden" ?>"
                 >
@@ -100,6 +101,7 @@
                 <a 
                     data-author-linkedin
                     href="<?php echo get_the_author_meta( 'linkedin', $users[0]->ID ); ?>" 
+                    target="_blank"
                     aria-label="<?php echo $users[0]->display_name ?>'s LinkedIn"
                 >
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
