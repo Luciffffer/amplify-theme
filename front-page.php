@@ -11,14 +11,14 @@ $artists = new WP_Query(
 
 $artists = $artists->posts;
 
-$podcasts = new WP_Query(
+$webinars = new WP_Query(
     array(
-        'post_type' => 'podcasts',
+        'post_type' => 'webinars',
         'posts_per_page' => -1,
     )
 );
 
-$podcasts = $podcasts->posts;
+$webinars = $webinars->posts;
 
 // begin editing html below
 ?>
@@ -44,7 +44,7 @@ $podcasts = $podcasts->posts;
         <div class="pt-32 flex flex-col gap-12 items-center md:items-end w-full">
             <h1 class="font-heading text-heading-lg text-center md:text-right xl:text-heading-xl xl:max-w-xl">Putting Artists In The Spotlight</h1>
             <a 
-                href="#"
+                href="<?php echo get_post_type_archive_link('artists'); ?>"
                 class="block font-button-base px-6 py-3 w-fit text-center text-white primary-button-colors rounded-md"
             >
                 Check out all artists
@@ -98,9 +98,9 @@ $podcasts = $podcasts->posts;
                 </div>
             </div>
             <div class="flex items-center gap-6">
-                <span class="font-heading text-heading-xxl"><?php echo sizeof($podcasts) ?></span>
+                <span class="font-heading text-heading-xxl"><?php echo sizeof($webinars) ?></span>
                 <div class="flex flex-col">
-                    <span class="italic text-body-lg font-light">Podcast<?php if (sizeof($podcasts) != 1) echo "s"; ?></span>
+                    <span class="italic text-body-lg font-light">Webinar<?php if (sizeof($webinars) != 1) echo "s"; ?></span>
                     <span class="text-heading-sm italic">Recorded</span>
                 </div>
             </div>

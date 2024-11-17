@@ -26,8 +26,8 @@
                         data-spotify="<?php echo get_the_author_meta( 'spotify', $user->ID ); ?>"
                         data-linkedin="<?php echo get_the_author_meta( 'linkedin', $user->ID ); ?>"
                     >
-                        <div class="flex flex-col gap-6 mx-auto max-w-xs">
-                            <div class="relative">
+                        <div class="flex flex-col gap-6 mx-auto max-w-xs w-full">
+                            <div class="relative w-full">
                                 <?php echo get_avatar( $user->ID, 300, '', $user->display_name, array( 'class' => 'w-full aspect-square' ) ); ?>
                                 <div class="w-full h-full absolute bg-black top-0 left-0 mix-blend-color group-data-[selected]:bg-primary transition-colors duration-500"></div>
                             </div>
@@ -74,7 +74,7 @@
                 <span class="font-heading text-heading-xxl text-primary">"</span>
                 <p class="text-heading-sm font-heading -mt-9 flex flex-col gap-3">
                     <span data-author-quote><?php echo get_the_author_meta( 'quote', $users[0]->ID ); ?></span>
-                    <span data-author-name class="block text-primary text-body-base font-sans font-bold">- <?php echo $users[0]->display_name ?></span>
+                    <span data-author-name class="block text-primary text-body-base font-sans font-bold italic">- <?php echo $users[0]->display_name ?></span>
                 </p>
             </div>
             <div class="flex flex-col gap-9">

@@ -89,10 +89,8 @@
                                     $themeLocations = get_nav_menu_locations();
 
                                     $globalMenuObj = get_term( $themeLocations['global'], 'nav_menu' );
-                                    $buttonsMenuObj = get_term( $themeLocations['global-buttons'], 'nav_menu' );
 
                                     $navItems = wp_get_nav_menu_items( $globalMenuObj->name );
-                                    $navButtons = wp_get_nav_menu_items( $buttonsMenuObj->name ); 
 
                                     if (empty($navItems)) {
                                         echo '<li><a href="/wp-admin/nav-menus.php">Assign a menu</a></li>';
@@ -113,27 +111,31 @@
                                     <?php endforeach; ?>
                                 </div>
 
-                                <?php 
-                                    }
+                                <?php } ?>
 
-                                    if (!empty($navButtons)) :
-                                ?>
+                                
                                 <hr class="w-[2px] h-6 bg-white rounded-full hidden md:block" />
                                 <div class="flex md:gap-3 flex-col gap-6 md:flex-row w-full max-w-xs">
-                                    <?php for ($i = 0; $i < count($navButtons); $i++) : ?>
+                                    
                                     <li>
                                         <a 
-                                            href="<?php echo $navButtons[$i]->url; ?>" 
-                                            class="flex items-center justify-center w-full text-button-lg h-12 md:w-32 md:h-9 rounded-md md:text-button-base <?php echo ($i == 0) ? 'primary-button-colors' : 'black-button-colors md:white-button-colors'; ?>"
+                                            href="<?php echo get_post_type_archive_link('artists'); ?>" 
+                                            class="flex items-center justify-center w-full text-button-lg h-12 md:w-32 md:h-9 rounded-md md:text-button-base primary-button-colors"
                                         >
-                                            <?php echo $navButtons[$i]->title; ?>
+                                            Artists
                                         </a>
                                     </li>
-                                    <?php endfor; ?>
+
+                                    <li>
+                                        <a 
+                                            href="<?php echo get_post_type_archive_link('webinars'); ?>" 
+                                            class="flex items-center justify-center w-full text-button-lg h-12 md:w-32 md:h-9 rounded-md md:text-button-base black-button-colors md:white-button-colors"
+                                        >
+                                            Webinars
+                                        </a>
+                                    </li>
+                                    
                                 </div>
-                                <?php 
-                                    endif;
-                                ?>
                             </ul>
                         </div>
                     </div>

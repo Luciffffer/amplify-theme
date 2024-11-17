@@ -43,7 +43,7 @@ pageStarter($pageStarterContent);
                             d="M24.75 38C22.0137 36.4202 18.9097 35.5885 15.75 35.5885C12.5903 35.5885 9.48635 36.4202 6.75 38V12C9.48635 10.4202 12.5903 9.58846 15.75 9.58846C18.9097 9.58846 22.0137 10.4202 24.75 12M24.75 38C27.4863 36.4202 30.5903 35.5885 33.75 35.5885C36.9097 35.5885 40.0137 36.4202 42.75 38V12C40.0137 10.4202 36.9097 9.58846 33.75 9.58846C30.5903 9.58846 27.4863 10.4202 24.75 12M24.75 38V12"
                             stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span class="text-black group-hover:text-neutral-800 group-active:text-neutral-700">Ons Verhaal</span>
+                    <span class="text-black group-hover:text-neutral-800 group-active:text-neutral-700">Over Ons</span>
                 </a>
             </li>
             <div class="py-3">
@@ -63,10 +63,35 @@ pageStarter($pageStarterContent);
     </nav>
 </div>
 
-<section class="text-black px-6 py-32">
-    <div class="max-w-7xl mx-auto">
+<section class="text-black px-6 py-16 md:py-32">
+    <div class="max-w-7xl mx-auto flex flex-col gap-16">
         <h2 id="our-story" class="font-heading text-heading-base text-center">Over Ons</h2>
-        <?php the_content(); ?>
+        <div class="flex flex-col gap-32">
+            <div class="flex flex-col gap-12 md:grid grid-cols-2 items-center justify-center lg:gap-32">
+                <div class="flex flex-col gap-9 w-full max-w-lg mx-auto">
+                    <h3 class="font-heading text-heading-sm">Artiesten staan centraal</h3>
+                    <p>
+                        Bij Amplify draait alles om het ondersteunen van artiesten en hun muziek. We begrijpen hoe moeilijk het kan zijn voor nieuwe en opkomende artiesten om de aandacht te krijgen die ze verdienen in de competitieve muziekwereld. Hier bieden wij een oplossing voor. <span class="text-primary">Amplify zet onbekend talent in de schijnwerpers</span> door hen een platform te geven waar ze in het middelpunt van de belangstelling kunnen staan.
+                    </p>
+                    <p>
+                        Onze website biedt een breed aanbod aan blogs waarin we artiesten en hun muziek bespreken. Gebruikers kunnen reageren en hun mening delen. Zo komen er discussies en interactie tot leven die een ruimte creëren waarin mensen vrij en met respect hun passie voor muziek kunnen uiten.
+                    </p>
+                </div>
+                <img class="w-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/artist-guitar.jpg" alt="A man playing guitar">
+            </div>
+            <div class="flex flex-col gap-12 md:grid grid-cols-2 items-center justify-center lg:gap-32">
+                <div class="flex flex-col gap-9 max-w-lg mx-auto">
+                    <h3 class="font-heading text-heading-sm">Meer dan alleen nieuwe muziek ontdekken</h3>
+                    <p>
+                        Bij ons draait het niet alleen om het ontdekken van nieuwe muziek, maar vooral om het  <span class="text-primary">opbouwen van een community.</span> Je kunt blogs lezen, jouw mening geven, en in contact komen met anderen die net zo gepassioneerd zijn over muziek als jij. Wij geloven sterk in gelijke kansen, want elke artiest verdient erkenning voor het harde werk en creativiteit die ze in hun muziek steken.
+                    </p>
+                    <p>
+                        Onze missie is om de barrières van de muziekindustrie te doorbreken door artiesten van alle achtergronden een platform te bieden waarop ze hun fanbase kunnen opbouwen en hun muziek kunnen delen. <span class="text-primary">We streven naar een toekomst waarin elke stem wordt gehoord, hoe klein die ook is!</span>
+                    </p>
+                </div>
+                <img class="md:-order-1" src="<?php echo get_template_directory_uri(); ?>/assets/images/people-dancing-hiphop.webp" alt="A group of people dancing to hiphop">
+            </div>
+        </div>
     </div>
 </section>
 

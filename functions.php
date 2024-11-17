@@ -43,15 +43,15 @@ if ( ! function_exists( 'amplify_setup' ) ) {
             )
         );
 
-        register_post_type( 'podcasts',
+        register_post_type( 'webinars',
             array(
                 'labels' => array(
-                    'name' => __( 'Podcasts' ),
-                    'singular_name' => __( 'Podcast' )
+                    'name' => __( 'Webinars' ),
+                    'singular_name' => __( 'Webinar' )
                 ),
                 'public' => true,
                 'has_archive' => true,
-                'rewrite' => array( 'slug' => 'podcasts' ),
+                'rewrite' => array( 'slug' => 'webinars' ),
                 'menu_icon' => 'dashicons-microphone',
                 'supports' => array( 'title', 'editor', 'thumbnail' ),
                 'show_in_rest' => true,

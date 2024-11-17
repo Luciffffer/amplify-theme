@@ -14,6 +14,16 @@ ob_start();
 
 pageStarter(ob_get_clean());
 
+?>
+
+<section class="px-6 py-12">
+    <div class="w-full mx-auto max-w-7xl">
+        <?php the_content(); ?>
+    </div>
+</section>
+
+<?php
+
 get_footer(); 
 
 ?>

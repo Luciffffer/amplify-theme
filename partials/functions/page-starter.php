@@ -1,6 +1,11 @@
 <?php
 
-function pageStarter(string $innerContent = '') {
+/**
+ * Generates the starting HTML for a page
+ * @param string $innerContent The content to display inside the page starter. Recommended to use ob_start() and ob_get_clean() to pass in content
+ * @return void
+ */
+function pageStarter(string $innerContent = ''): void {
     ?>
 
     <section class="px-6 pt-16 text-white bg-black relative">
