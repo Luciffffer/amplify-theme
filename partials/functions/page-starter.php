@@ -21,7 +21,7 @@ function pageStarter(string $innerContent = ''): void {
             </div>
         </div>
         <div class="max-w-7xl mx-auto flex flex-col gap-20 relative">
-            <div class="py-40 md:py-32 flex flex-col gap-12 items-center w-full">
+            <div class="py-32 md:py-32 flex flex-col gap-12 items-center w-full">
                 <?php echo $innerContent; ?>
             </div>
         </div>

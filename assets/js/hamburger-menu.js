@@ -36,6 +36,7 @@ hamburgerOpen.addEventListener('click', (e) => {
         document.addEventListener('keydown', keydownHandler);
         setTimeout(() => {
             hamburgerClose.focus();
+            site.style.display = 'none';
             isAnimating = false;
         }, 700);
     }, 1);
@@ -53,6 +54,8 @@ hamburgerClose.addEventListener('click', (e) => {
     e.preventDefault();
     isOpen = false;
     isAnimating = true;
+
+    site.style.display = 'block';
 
     overlay.style.transitionDuration = '0.7s';
     hamburgerMenu.style.transitionDuration = '0.6s';
