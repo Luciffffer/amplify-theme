@@ -26,7 +26,7 @@
                         data-spotify="<?php echo get_the_author_meta( 'spotify', $user->ID ); ?>"
                         data-linkedin="<?php echo get_the_author_meta( 'linkedin', $user->ID ); ?>"
                     >
-                        <div class="flex flex-col gap-6 mx-auto max-w-xs w-full">
+                        <div class="flex flex-col gap-6 mx-auto max-w-xs w-[90%]">
                             <div class="relative w-full">
                                 <?php echo get_avatar( $user->ID, 300, '', $user->display_name, array( 'class' => 'w-full aspect-square' ) ); ?>
                                 <div class="w-full h-full absolute bg-black top-0 left-0 mix-blend-color group-data-[selected]:bg-primary transition-colors duration-500"></div>

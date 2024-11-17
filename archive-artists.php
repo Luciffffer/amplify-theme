@@ -2,33 +2,33 @@
 
 require_once get_template_directory() . '/partials/functions/page-starter.php';
 
-$options = null;
+// $options = null;
 
-if (!empty($_GET['genre'])) {
-    $selectedGenre = get_terms([
-        'taxonomy' => 'genre',
-        'slug' => $_GET['genre']
-    ]);
+// if (!empty($_GET['genre'])) {
+//     $selectedGenre = get_terms([
+//         'taxonomy' => 'genre',
+//         'slug' => $_GET['genre']
+//     ]);
 
-    $options['tax_query'] = [
-        [
-            'taxonomy' => 'genre',
-            'field' => 'term_id',
-            'terms' => $selectedGenre[0]->term_id
-        ]
-    ];
-}
+//     $options['tax_query'] = [
+//         [
+//             'taxonomy' => 'genre',
+//             'field' => 'term_id',
+//             'terms' => $selectedGenre[0]->term_id
+//         ]
+//     ];
+// }
 
-if (!empty($_GET['order'])) {
-    $selectedOrder = $_GET['order'];
-}
+// if (!empty($_GET['order'])) {
+//     $selectedOrder = $_GET['order'];
+// }
 
-$artists = get_posts([
-    'post_type' => 'artists',
-    'posts_per_page' => -1,
-    'order' => $selectedOrder ?? 'ASC',
-    $options
-]);
+// $artists = get_posts([
+//     'post_type' => 'artists',
+//     'posts_per_page' => -1,
+//     'order' => $selectedOrder ?? 'ASC',
+//     $options
+// ]);
 
 get_header();
 
@@ -36,8 +36,9 @@ ob_start();
 
 ?>
 
-<h1 class="font-heading text-heading-lg md:text-heading-xl">
-    <?php echo $selectedGenre[0]->name ?? "All"; ?> Artists
+<h1 class="font-heading text-heading-lg text-center md:text-heading-xl">
+    <!-- <?php // echo $selectedGenre[0]->name ?? "All"; ?> Artists -->
+    Work In Progress
 </h1>
 
 <?php
@@ -48,7 +49,7 @@ pageStarter(ob_get_clean());
 
 <section class="px-6 py-32">
 
-    <form action="#" aria-label="Filters">
+    <!-- <form action="#" aria-label="Filters">
         <ul>
             <li 
                 class="*:stroke-neutral-600 flex px-6 py-3 gap-3 border border-neutral-600 rounded-md items-center focus-within:border-primary-300 relative"
@@ -60,7 +61,7 @@ pageStarter(ob_get_clean());
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <input 
-                    class="w-full focus:outline-none"
+                    class="w-full focus:outline-none bg-transparent"
                     type="text"
                     placeholder="Find a genre..."
                     aria-expanded="false"
@@ -189,7 +190,7 @@ pageStarter(ob_get_clean());
             </script>
 
         </ul>
-    </form>
+    </form> -->
 
 </section>
 

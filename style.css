@@ -1015,6 +1015,10 @@ video {
   width: 80vw;
 }
 
+.w-\[90\%\] {
+  width: 90%;
+}
+
 .w-\[99\%\] {
   width: 99%;
 }
@@ -1321,6 +1325,10 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(251 252 253 / var(--tw-bg-opacity));
+}
+
+.bg-transparent {
+  background-color: transparent;
 }
 
 .bg-opacity-50 {
