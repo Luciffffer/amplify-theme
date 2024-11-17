@@ -21,7 +21,7 @@
                         class="w-full snap-start group md:w-fit"
                         data-name="<?php echo $user->display_name; ?>"
                         data-quote="<?php echo get_the_author_meta( 'quote', $user->ID ); ?>"
-                        data-description="<?php echo get_the_author_meta( 'whois-description', $user->ID ); ?>"
+                        data-description="<?php echo esc_attr(str_replace(array("\r", "\n"), array('', '\n'), get_the_author_meta('whois-description', $user->ID))); ?>"
                         data-fun-fact="<?php echo get_the_author_meta( 'fun-fact', $user->ID ); ?>"
                         data-spotify="<?php echo get_the_author_meta( 'spotify', $user->ID ); ?>"
                         data-linkedin="<?php echo get_the_author_meta( 'linkedin', $user->ID ); ?>"
@@ -78,7 +78,7 @@
                 </p>
             </div>
             <div class="flex flex-col gap-9">
-                <p data-author-description><?php echo get_the_author_meta( 'whois-description', $users[0]->ID ); ?></p>
+                <p data-author-description><?php echo nl2br(get_the_author_meta( 'whois-description', $users[0]->ID )); ?></p>
                 <p class="flex flex-col gap-3">
                     <span class="font-bold">Leuk feitje:</span>
                     <span data-author-funfact><?php echo get_the_author_meta( 'fun-fact', $users[0]->ID ); ?></span>
@@ -221,7 +221,8 @@
     function displayAuthorData(name, quote, description, funFact, spotify, linkedin) {
         document.querySelector('[data-author-name]').textContent = `- ${name}`;
         document.querySelector('[data-author-quote]').textContent = quote || 'No quote available';
-        document.querySelector('[data-author-description]').textContent = description || 'No description available';
+        const formattedDescription = description.replace(/\\n/g, '<br>');
+        document.querySelector('[data-author-description]').innerHTML = formattedDescription || 'No description available';
         document.querySelector('[data-author-funfact]').textContent = funFact || 'No fun fact available';
 
         if (spotify) {

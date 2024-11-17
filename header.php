@@ -6,7 +6,7 @@
     <?php wp_head(); ?>
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="all" />
 </head>
-<body class="text-black text-body-base bg-black">
+<body class="text-black text-body-base bg-black scroll-smooth">
     <div id="site" class="bg-white">
         <a 
             class="sr-only bg-white box-border text-black focus:p-2 focus:not-sr-only focus:absolute focus:left-4 focus:top-4 <?php if ( is_admin_bar_showing() ) echo 'top-[46px] min-[783px]:!top-8' ?>" 
