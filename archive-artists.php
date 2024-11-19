@@ -2,7 +2,10 @@
 
 require_once get_template_directory() . '/partials/functions/page-starter.php';
 
-$options = [];
+$options = [
+    'post_type' => 'artists',
+    'posts_per_page' => -1,
+];
 $selectedGenre = null;
 $selectedOrder = "newest";
 
@@ -44,11 +47,7 @@ if (!empty($_GET['order'])) {
     }
 }
 
-$artists = get_posts([
-    'post_type' => 'artists',
-    'posts_per_page' => -1,
-    ...$options
-]);
+$artists = get_posts($options);
 
 get_header();
 
