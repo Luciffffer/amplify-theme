@@ -158,6 +158,10 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
     @apply !w-full !h-auto;
 }
 
+#article-content .wp-block-image * {
+    @apply !w-full !h-auto;
+}
+
 #article-content > *:not(p) {
     @apply py-6;
 }
