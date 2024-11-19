@@ -124,6 +124,21 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
         background: conic-gradient(from 0deg, #ffffff00 0%, #8640DC 100%);
     }
 
+    .order-radio {
+        @apply bg-neutral-50 flex items-center rounded p-[2px] h-12;
+    }
+
+    .order-radio > label {
+        @apply px-3 cursor-pointer text-button-base text-neutral-500 h-full rounded flex items-center justify-center transition-colors duration-200;
+    }
+
+    .order-radio > label:has(input:checked) {
+        @apply bg-white text-black;
+    }
+
+    .genre-radio > label:has(input:checked) {
+        @apply bg-black text-white;
+    }
 
 }
 
