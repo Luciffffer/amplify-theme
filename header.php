@@ -4,6 +4,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
+    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri() . '?ver=' . filemtime(get_stylesheet_directory() . '/style.css'); ?>" type="text/css" media="all" />
 </head>
 <body class="text-black text-body-base bg-black scroll-smooth">
