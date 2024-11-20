@@ -209,6 +209,7 @@ pageStarter(ob_get_clean());
                 genreIsOpen = true;
 
                 genreResultsContainer.classList.remove('hidden');
+                genreContainer.querySelector('input').ariaExpanded = true;
 
                 setTimeout(() => {
                     genreResultsContainer.style.opacity = 1;
@@ -228,6 +229,7 @@ pageStarter(ob_get_clean());
 
                 setTimeout(() => {
                     genreResultsContainer.classList.add('hidden');
+                    genreContainer.querySelector('input').ariaExpanded = false;
                 }, 200);
             }
 
