@@ -365,7 +365,7 @@ pageStarter(ob_get_clean());
         <?php
         foreach ($artists as $artist) :
             $artistMeta = get_post_meta($artist->ID, 'artist', true);
-            $artistImage = get_the_post_thumbnail_url($artist->ID, 'medium');
+            $artistImage = get_the_post_thumbnail_url($artist->ID, 'large');
             $artistName = $artist->post_title;
             $artistGenres = get_the_terms($artist->ID, 'genre');
             $artistLink = get_the_permalink($artist->ID);
