@@ -58,7 +58,10 @@ foreach ($topLayerComments as $comment) {
                         <?php foreach ($terms as $term) : ?>
 
                             <li>
-                                <a class="rounded-md px-6 py-2 border-2 white-border-button-colors block" href="<?php echo get_term_link( $term ); ?>">
+                                <a 
+                                    class="rounded-md px-6 py-2 border-2 white-border-button-colors block" 
+                                    href="<?php echo get_post_type_archive_link('artists') . "?genre=" . $term->slug ?>"
+                                >
                                     <?php echo $term->name; ?>
                                 </a>
                             </li>
