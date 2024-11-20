@@ -57,8 +57,8 @@ foreach ($topLayerComments as $comment) {
                     <ul class="text-button-base flex flex-wrap justify-center gap-3">
                         <?php foreach ($terms as $term) : ?>
 
-                            <li class="rounded-md px-6 py-2 border-2 white-border-button-colors">
-                                <a href="<?php echo get_term_link( $term ); ?>">
+                            <li>
+                                <a class="rounded-md px-6 py-2 border-2 white-border-button-colors block" href="<?php echo get_term_link( $term ); ?>">
                                     <?php echo $term->name; ?>
                                 </a>
                             </li>
@@ -317,7 +317,7 @@ if (!empty($references)) :
                     </ul>
 
                 <?php else : ?>
-                    <p class="text-center">No comments yet</p>
+                    <p class="text-center py-12 text-neutral-500">No comments yet</p>
                 <?php endif; ?>
             </div>
         </div>

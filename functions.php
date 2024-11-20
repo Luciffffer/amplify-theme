@@ -80,12 +80,16 @@ if ( ! function_exists( 'amplify_setup' ) ) {
 }
 add_action( 'init', 'amplify_setup' );
 
+// title tag
+function amplify_title_tag() {
+    add_theme_support( 'title-tag' );
+}
+add_action( 'after_setup_theme', 'amplify_title_tag' );
 
 // hide default post type
 function amplify_hide_default_post_type() {
     remove_menu_page( 'edit.php' );
 }
-
 add_action( 'admin_menu', 'amplify_hide_default_post_type' );
 
 function amplify_remove_default_post_type_menu_bar( $wp_admin_bar ) {

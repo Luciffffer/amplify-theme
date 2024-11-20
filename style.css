@@ -1679,6 +1679,16 @@ video {
   color: rgb(251 252 253 / var(--tw-text-opacity));
 }
 
+.text-neutral-300 {
+  --tw-text-opacity: 1;
+  color: rgb(186 188 192 / var(--tw-text-opacity));
+}
+
+.text-neutral-700 {
+  --tw-text-opacity: 1;
+  color: rgb(81 83 89 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -1841,6 +1851,14 @@ video {
   line-height: 1.5rem;
   letter-spacing: -0.01em;
   font-weight: 500;
+}
+
+#article-content figcaption {
+  margin: 0px;
+  margin-top: 0.75rem;
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(136 138 146 / var(--tw-text-opacity));
 }
 
 input::-moz-placeholder {
