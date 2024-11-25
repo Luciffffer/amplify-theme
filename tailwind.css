@@ -163,7 +163,31 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
 }
 
 #article-content > *:not(p) {
-    @apply py-6;
+    @apply !py-6;
+}
+
+#article-content iframe {
+    @apply !max-w-full !w-full !justify-self-center !m-0;
+}
+
+#article-content hr:last-of-type {
+    @apply !mt-3;
+}
+
+#article-content h2 {
+    @apply !text-heading-sm !pb-0;
+}
+
+#article-content > h3 {
+    @apply !text-heading-xs !pb-0;
+}
+
+#article-content h4 {
+    @apply !text-heading-xxs !pb-0;
+}
+
+#article-content .is-provider-youtube iframe {
+    @apply !aspect-[16/9] !h-auto;
 }
 
 #article-content .wp-block-image img {

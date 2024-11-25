@@ -61,8 +61,10 @@ $webinars = $webinars->posts;
                     <?php
                     foreach ($genres as $genre) :
                     ?>
-                        <li class="rounded-md px-6 py-2 border-2 black-border-button-colors">
-                            <a href="<?php echo get_term_link( $genre ); ?>">
+                        <li class="block">
+                            <a 
+                                class="block rounded-md px-6 py-2 border-2 black-border-button-colors"
+                                href="<?php echo get_post_type_archive_link('artists') . "?genre=" . $genre->slug; ?>">
                                 <?php echo $genre->name; ?>
                             </a>
                         </li>
