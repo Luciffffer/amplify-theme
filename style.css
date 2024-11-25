@@ -1815,6 +1815,7 @@ video {
 
 #article-content h2 {
   padding-bottom: 0px !important;
+  font-family: "Rubik", "Inter", system-ui, BlinkMacSystemFont, -apple-system, sans-serif;
   font-size: 1.777rem !important;
   line-height: 140% !important;
   letter-spacing: 0em !important;
@@ -1823,6 +1824,7 @@ video {
 
 #article-content > h3 {
   padding-bottom: 0px !important;
+  font-family: "Rubik", "Inter", system-ui, BlinkMacSystemFont, -apple-system, sans-serif;
   font-size: 1.333rem !important;
   line-height: 140% !important;
   letter-spacing: 0em !important;
@@ -1831,6 +1833,7 @@ video {
 
 #article-content h4 {
   padding-bottom: 0px !important;
+  font-family: "Rubik", "Inter", system-ui, BlinkMacSystemFont, -apple-system, sans-serif;
   font-size: 1rem !important;
   line-height: 140% !important;
   letter-spacing: 0em !important;

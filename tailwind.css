@@ -175,15 +175,15 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
 }
 
 #article-content h2 {
-    @apply !text-heading-sm !pb-0;
+    @apply !text-heading-sm !pb-0 font-heading;
 }
 
 #article-content > h3 {
-    @apply !text-heading-xs !pb-0;
+    @apply !text-heading-xs !pb-0 font-heading;
 }
 
 #article-content h4 {
-    @apply !text-heading-xxs !pb-0;
+    @apply !text-heading-xxs !pb-0 font-heading;
 }
 
 #article-content .is-provider-youtube iframe {
