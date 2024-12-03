@@ -984,6 +984,10 @@ video {
   aspect-ratio: 1 / 1;
 }
 
+.aspect-\[16\/9\] {
+  aspect-ratio: 16/9;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -1537,6 +1541,10 @@ video {
 
 .pt-64 {
   padding-top: 16rem;
+}
+
+.pt-9 {
+  padding-top: 2.25rem;
 }
 
 .text-left {
@@ -2299,6 +2307,10 @@ input::placeholder {
 
   .md\:items-center {
     align-items: center;
+  }
+
+  .md\:justify-end {
+    justify-content: flex-end;
   }
 
   .md\:justify-between {

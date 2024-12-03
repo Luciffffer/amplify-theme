@@ -53,7 +53,7 @@ if ( ! function_exists( 'amplify_setup' ) ) {
                 'has_archive' => true,
                 'rewrite' => array( 'slug' => 'webinars' ),
                 'menu_icon' => 'dashicons-microphone',
-                'supports' => array( 'title', 'editor', 'thumbnail' ),
+                'supports' => array( 'title', 'thumbnail', 'comments' ),
                 'show_in_rest' => true,
             )
         );
@@ -99,6 +99,9 @@ add_action( 'admin_bar_menu', 'amplify_remove_default_post_type_menu_bar', 999 )
 
 // custom artist fields
 require_once get_template_directory() . '/partials/functions/custom-artist-fields.php';
+
+// custom webinar fields
+require_once get_template_directory() . '/partials/functions/custom-webinar-fields.php';
 
 // custom user fields
 require_once get_template_directory() . '/partials/functions/custom-user-fields.php';

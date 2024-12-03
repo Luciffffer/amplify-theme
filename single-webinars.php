@@ -33,7 +33,7 @@ foreach ($topLayerComments as $comment) {
 
 <section>
 
-    <div class="px-6 pt-16 text-white bg-black relative ">
+    <div class="px-6 py-16 text-white bg-black relative ">
         <div aria-hidden="true" class="h-full w-full aspect-square absolute top-0 left-0 overflow-hidden">
             <div class="w-full h-full px-6">
                 <div class="relative w-full h-full max-w-7xl mx-auto">
@@ -46,121 +46,43 @@ foreach ($topLayerComments as $comment) {
             </div>
         </div>
         <div class="max-w-7xl mx-auto flex flex-col jusitfy-center gap-16 relative lg:flex-row lg:pt-20 lg:pb-12 xl:gap-32">
-            <div class="pt-24 lg:pt-16 w-full flex flex-col gap-12 items-center lg:items-end">
-                <h1 class="font-heading text-heading-lg text-center lg:text-right xl:text-heading-xl"><?php the_title(); ?></h1>
-
-                <?php 
-                    $terms = get_the_terms( get_the_ID(), 'genre' );
-                    if (!empty($terms) && !is_wp_error($terms)) :                          
-                ?>
-
-                    <ul class="text-button-base flex flex-wrap justify-center gap-3">
-                        <?php foreach ($terms as $term) : ?>
-
-                            <li>
-                                <a 
-                                    class="rounded-md px-6 py-2 border-2 white-border-button-colors block" 
-                                    href="<?php echo get_post_type_archive_link('artists') . "?genre=" . $term->slug ?>"
-                                >
-                                    <?php echo $term->name; ?>
-                                </a>
-                            </li>
-                        
-                        <?php endforeach; ?>
-                    </ul>
-
-                <?php endif; ?>
-
+            <div class="pt-24 lg:pt-16 w-full flex flex-col gap-12 items-center">
+                <h1 class="font-heading text-heading-lg text-center xl:text-heading-xl"><?php the_title(); ?></h1>
             </div>
-
-            <div class="max-w-[24.1rem] w-full flex mx-auto aspect-[2/3] rounded-3xl -mb-48 relative">
-                <div data-cover-left class="w-full h-full conic-gradient-artist-cover-left rounded-l-3xl"></div>
-                <div data-cover-right class="w-full h-full conic-gradient-artist-cover-right rounded-r-3xl"></div>
-                <div 
-                    style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);"
-                    class="bg-cover bg-white absolute max-w-sm aspect-[2/3] rounded-3xl w-[99%] left-1/2 -translate-x-1/2 top-1/2 shadow-card -translate-y-1/2"
-                ></div>
-            </div>
-
         </div>
     </div>
 
-    <div class="pt-64 px-6 xl:pt-9">
-        <div class="max-w-7xl mx-auto xl:grid grid-cols-artist-article xl:gap-32">
-            <div class="max-w-2xl w-full mx-auto xl:mx-0 xl:max-w-xl xl:justify-self-end flex flex-col gap-9">
+    <div class="px-6 pt-9">
+        <div class="max-w-7xl mx-auto">
+            <div class="w-full mx-auto xl:mx-0 flex flex-col gap-9">
 
-                <div class="flex justify-between items-center">
-                    <div aria-label="Author and article information" class="flex gap-3">
-                        <?php echo get_avatar( get_the_author_meta( 'ID' ), 48, '', '', array( 'class' => 'rounded-full aspect-square w-12' ) ); ?>
-                        <div class="flex flex-col">
-                            <p><?php echo (empty(get_the_author_meta( 'display_name' )) ? "Unknown" : get_the_author_meta( 'display_name' )); ?></p>
-                            <p class="text-body-sm italic"><?php echo get_the_date(); ?></p>
-                        </div>
-                    </div>
-            
-                    <style>
-                        .sfsi_widget {
-                            height: fit-content !important;
-                            min-height: auto !important;
-                        }
-
-                        .sfsi_wDiv {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            gap: 1rem;
-                            margin-top: 1rem;
-                            width: 100% !important;
-                            margin: 0;
-                        }
-
-                        .sfsi_wicons {
-                            width: 1.5rem !important;
-                            height: 1.5rem !important;
-                            margin: 0 !important;
-                            background-size: cover;
-                            background-repeat: no-repeat;
-                        }
-
-                        .sfsi_wicons * {
-                            width: 1.5rem !important;
-                            height: 1.5rem !important;
-                        }
-
-                        .sfsi_wicons img {
-                            display: none;
-                        }
-
-                        .sfsi_wDiv .sfsi_wicons:first-child {
-                            background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/facebook-icon.svg');
-                        }
-
-                        .sfsi_wDiv .sfsi_wicons:nth-child(2) {
-                            background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/x-icon.svg');
-                        }
-
-                        .sfsi_wDiv .sfsi_wicons:nth-child(3) {
-                            background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/whatsapp-icon.svg');
-                        }
-                    </style>
-                    <?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?>
-                    
-                    </ul>
+                <div id="youtube-player" class="aspect-[16/9] bg-white shadow-card w-full">
+                    <div id="player"></div>
                 </div>
-
-                <hr class="h-[2px] bg-black rounded-full">
-
-                <div id="article-content" class="flex flex-col gap-6">
-                    <?php the_content(); ?>
-                    <hr aria-hidden="true" class="h-[2px] rounded-full bg-black" style="padding: 0 !important;">
-                </div>
+                
             </div>
-
-            <aside class="hidden xl:block p-1 pt-36">
-                <div data-artist-spotify></div>
-            </aside>
         </div>
     </div>
+
+    <script defer>
+
+        const youtubeApiScript = document.createElement('script');
+        youtubeApiScript.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(youtubeApiScript);
+
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                height: '100%',
+                width: '100%',
+                videoId: '<?php echo get_post_meta(get_the_ID(), 'amplify_meta_webinar_youtube', true); ?>',
+                playerVars: {
+                    'playsinline': 1
+                }
+            });
+        }
+
+    </script>
 
 </section>
 
@@ -329,55 +251,6 @@ if (!empty($references)) :
 </section>
 
 <script>
-    // conic gradient animation
-    const coverLeft = document.querySelector('[data-cover-left]');
-    const coverRight = document.querySelector('[data-cover-right]');
-    const startDegreeLeft = parseInt(getComputedStyle(coverLeft).getPropertyValue('--start-deg'));
-    const startDegreeRight = parseInt(getComputedStyle(coverRight).getPropertyValue('--start-deg'));
-    let counter = 0;
-
-    window.addEventListener('load', e => {
-        window.addEventListener('scroll', handleScollWithCoverAnimation);
-    })
-
-    function handleScollWithCoverAnimation(e) {
-        // don't run if screen isn't mobile
-        if (window.innerWidth > 768) return;
-
-        if (window.scrollY > 200) {
-            window.removeEventListener('scroll', handleScollWithCoverAnimation);
-            const interval = setInterval(intervalFunc, 5);
-
-            function intervalFunc() {
-                
-                if (counter < 45 || counter > 100) {
-                    counter += 1;
-                } else {
-                    counter += 2;
-                }
-
-                setDegreeLeft(startDegreeLeft - counter);
-                setDegreeRight(startDegreeRight + counter);
-
-                if (counter >= 260) {
-                    clearInterval(interval);
-                    setDegreeLeft(startDegreeLeft);
-                    setDegreeRight(startDegreeRight);
-                    counter = 0;
-                }
-            }
-        } 
-    };
-
-    function setDegreeLeft(degree) {
-        coverLeft.style.setProperty('--start-deg', `${degree}deg`);
-    }
-
-    function setDegreeRight(degree) {
-        coverRight.style.setProperty('--start-deg', `${degree}deg`);
-    }
-</script>
-<script>
     const commentForm = document.querySelector('[data-comment-form]');
     const commentMainFormButton = document.querySelector('[data-comment-main-form-button]');
     const commentMainPlaceholder = document.querySelector('[data-comment-main-placeholder]');
@@ -533,21 +406,6 @@ if (!empty($references)) :
 
     const childCommentReplyButtons = document.querySelectorAll('[data-child-comment-reply]');
 
-</script>
-<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
-<script>
-    window.onSpotifyIframeApiReady = (IFrameAPI) => {
-        const aside = document.querySelector('[data-artist-spotify]');
-        const spotifyUrl = '<?php echo get_post_meta(get_the_ID(), 'amplify_meta_artist_spotify', true); ?>';
-        
-        if (spotifyUrl === '') {
-            aside.innerHTML = '<p class="text-center">No Spotify URL provided</p>';
-            return;
-        }
-
-        const callback = (EmbedController) = {};
-        IFrameAPI.createController(aside, { uri: spotifyUrl }, callback);
-    };
 </script>
 <?php
 

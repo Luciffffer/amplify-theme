@@ -411,6 +411,7 @@ pageStarter(ob_get_clean());
             <?php
         endif;
         ?>
+    </ul>
 
 </section>
 
