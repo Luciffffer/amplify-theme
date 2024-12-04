@@ -142,6 +142,14 @@ License:        Copyright Lucᴉfer 2024. All Rights Reserved
 
 }
 
+::selection {
+    @apply bg-primary-500 text-white;
+}
+
+::-moz-selection {
+    @apply bg-primary-500 text-white;
+}
+
 .hamburger-overlay {
     @apply absolute top-0 left-0 w-full h-screen bg-primary z-[999999] translate-x-full transition-transform duration-[600ms];
 }
