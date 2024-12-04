@@ -6,7 +6,7 @@
  */
 
 function amplify_meta_webinar_youtube() {
-    add_meta_box( 'amplify_meta_webinar_youtube', 'YouTube URL', 'amplify_meta_webinar_youtube_callback', 'webinars', 'normal', 'high' );
+    add_meta_box( 'amplify_meta_webinar_youtube', 'YouTube', 'amplify_meta_webinar_youtube_callback', 'webinars', 'normal', 'high' );
 }
 
 add_action( 'add_meta_boxes', 'amplify_meta_webinar_youtube' );
@@ -16,7 +16,7 @@ function amplify_meta_webinar_youtube_callback( $post ) {
 
     $amplify_meta_webinar_youtube = get_post_meta( $post->ID, 'amplify_meta_webinar_youtube', true );
 
-    echo '<label for="amplify_meta_webinar_youtube">YouTube URL: </label>';
+    echo '<label for="amplify_meta_webinar_youtube">YouTube Video ID: </label>';
     echo '<input type="text" style="width: 100%;" id="amplify_meta_webinar_youtube" name="amplify_meta_webinar_youtube" value="' . esc_attr( $amplify_meta_webinar_youtube ) . '" />';
 }
 
