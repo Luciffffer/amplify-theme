@@ -56,6 +56,7 @@ $webinars = $webinars->posts;
             <?php
             $genres = get_the_terms($artists[0]->ID, 'genre');
             if ($genres && !is_wp_error($genres)) :
+                $genres = array_slice($genres, 0, 2);
             ?>
                 <ul aria-label="Genres" class="flex gap-3 flex-wrap">
                     <?php
