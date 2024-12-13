@@ -226,3 +226,25 @@ input::placeholder {
 .selected-genre {
     @apply bg-black text-white hover:!bg-neutral-800 active:!bg-neutral-700 focus:!bg-neutral-800 transition-colors;
 }
+
+[data-scroll-appear] {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 0.7s, transform 0.7s;
+}
+
+[data-scroll-appear].appear {
+    @apply opacity-100 translate-y-0;
+}
+
+@media(prefers-reduced-motion) {
+    [data-scroll-appear] {
+        @apply transition-none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .front-page-artists {
+        padding-top: 0px !important;
+    }
+}

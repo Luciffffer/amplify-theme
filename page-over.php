@@ -8,7 +8,7 @@ ob_start();
 
 ?>
 
-<h1 class="font-heading text-heading-lg text-center flex flex-col gap-3">
+<h1 class="font-heading text-heading-lg text-center flex flex-col gap-3" data-scroll-appear>
     Wij Zijn
     <svg  class="w-[80vw] max-w-80" viewBox="0 0 333 75" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M319.582 11.2429C320.191 10.0937 321.385 9.375 322.685 9.375H327.04C329.653 9.375 331.351 12.1268 330.178 14.4618L315.217 44.2592C314.972 44.7481 314.844 45.2876 314.844 45.8347V62.1138C314.844 64.053 313.272 65.625 311.333 65.625H307.371C305.432 65.625 303.86 64.053 303.86 62.1138V45.8379C303.86 45.2888 303.731 44.7473 303.484 44.2569L288.461 14.4673C287.284 12.1319 288.981 9.375 291.596 9.375H295.947C297.244 9.375 298.435 10.0897 299.046 11.2339L306.243 24.7295C307.567 27.2122 311.127 27.207 312.444 24.7206L319.582 11.2429Z" fill="#FBFCFD"/>
@@ -65,9 +65,9 @@ pageStarter($pageStarterContent);
 
 <section class="text-black px-6 py-16 md:py-32">
     <div class="max-w-7xl mx-auto flex flex-col gap-16">
-        <h2 id="our-story" class="font-heading text-heading-base text-center">Over Ons</h2>
+        <h2 id="our-story" class="font-heading text-heading-base text-center" data-scroll-appear>Over Ons</h2>
         <div class="flex flex-col gap-32">
-            <div class="flex flex-col gap-12 md:grid grid-cols-2 items-center justify-center lg:gap-32">
+            <div class="flex flex-col gap-12 md:grid grid-cols-2 items-center justify-center lg:gap-32" data-scroll-appear>
                 <div class="flex flex-col gap-9 w-full max-w-lg mx-auto">
                     <h3 class="font-heading text-heading-sm">Artiesten staan centraal</h3>
                     <p>
@@ -79,7 +79,7 @@ pageStarter($pageStarterContent);
                 </div>
                 <img class="w-full" src="<?php echo get_template_directory_uri(); ?>/assets/images/artist-guitar.jpg" alt="A man playing guitar">
             </div>
-            <div class="flex flex-col gap-12 md:grid grid-cols-2 items-center justify-center lg:gap-32">
+            <div class="flex flex-col gap-12 md:grid grid-cols-2 items-center justify-center lg:gap-32" data-scroll-appear>
                 <div class="flex flex-col gap-9 max-w-lg mx-auto">
                     <h3 class="font-heading text-heading-sm">Meer dan alleen nieuwe muziek ontdekken</h3>
                     <p>

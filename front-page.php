@@ -24,7 +24,7 @@ $webinars = $webinars->posts;
 ?>
 
 <section class="px-6 pt-36 text-white bg-black relative">
-    <div aria-hidden="true" class="h-full w-full aspect-square absolute top-0 left-0 overflow-hidden">
+    <div aria-hidden="true" class="h-full w-full aspect-square absolute top-0 left-0 overflow-hidden" data-scroll-appear>
         <div class="w-full h-full px-6">
             <div class="relative w-full h-full max-w-7xl mx-auto">
                 <div class="w-[1000px] aspect-square absolute -translate-x-1/2 -translate-y-1/2 top-48 left-1/2 md:top-[25%] md:left-[2rem]">
@@ -42,15 +42,21 @@ $webinars = $webinars->posts;
     </div>
     <div class="max-w-7xl mx-auto flex flex-col gap-20 md:flex-row relative">
         <div class="pt-32 flex flex-col gap-12 items-center md:items-end w-full">
-            <h1 class="font-heading text-heading-lg text-center md:text-right xl:text-heading-xl xl:max-w-xl">Putting Artists In The Spotlight</h1>
+            <h1 
+                class="font-heading text-heading-lg text-center md:text-right xl:text-heading-xl xl:max-w-xl"
+                data-scroll-appear
+            >
+                Putting Artists In The Spotlight
+            </h1>
             <a 
                 href="<?php echo get_post_type_archive_link('artists'); ?>"
-                class="block font-button-base px-6 py-3 w-fit text-center text-white primary-button-colors rounded-md"
+                class="block font-button-base px-6 py-3 w-fit text-center text-white primary-button-colors rounded-md !delay-200"
+                data-scroll-appear
             >
                 Check out all artists
             </a>
         </div>
-        <article class="w-full mx-auto max-w-md bg-white text-black rounded-3xl -mb-48 shadow-card p-6 flex flex-col gap-6 md:-mb-32">
+        <article class="w-full mx-auto max-w-md bg-white text-black rounded-3xl -mb-48 shadow-card p-6 flex flex-col gap-6 md:-mb-32 !delay-700" data-scroll-appear>
             <div class="aspect-square w-full bg-cover bg-no-repeat bg-left-top rounded-3xl" style="background-image: url(<?php echo get_the_post_thumbnail_url($artists[0]->ID); ?>);"></div>
             <h2 class="font-heading text-heading-sm"><?php echo $artists[0]->post_title; ?></h2>
             <?php
@@ -90,7 +96,7 @@ $webinars = $webinars->posts;
     </div>
 </section>
 
-<section class="my-72 px-6 md:my-48">
+<section class="mt-72 mb-24 px-6 md:mt-48" data-scroll-appear>
     <div class="max-w-7xl w-full mx-auto">
         <div class="flex justify-between items-center mx-auto flex-col gap-20 max-w-[80%] md:flex-row  md:flex-wrap lg:flex-nowrap">
             <div class="flex items-center gap-6">
@@ -120,6 +126,75 @@ $webinars = $webinars->posts;
         </div>
     </div>
 </section>
+
+<section class="group">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <a 
+            href="<?php echo get_post_type_archive_link('artists'); ?>"
+            class="flex gap-0 items-start group/link justify-start flex-col md:flex-row md:items-center md:gap-6"
+        >
+            <h2 class="font-heading text-heading-base group-hover/link:text-neutral-700 transition-colors duration-300">Latest artists</h2>
+            <span 
+                class="flex items-center gap-3 stroke-black group-hover:stroke-primary relative"
+            >
+                <span class="-translate-x-1/4 opacity-0 text-primary group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                    See all artists
+                </span>
+                <svg class="absolute left-0 opacity-0 transition-all duration-300 group-hover:left-[105%] group-hover:opacity-100" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12L13 18M19 12L13 6M19 12L5 12" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </span>
+        </a>
+
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 my-12">
+            <?php
+            for ($i = 0; $i < 4; $i++) :
+                if (!isset($artists[$i])) break;
+                $artistGenres = get_the_terms($artists[$i]->ID, 'genre');
+                if ($artistGenres && !is_wp_error($artistGenres)) {
+                    // Limit the number of terms to 2
+                    $artistGenres = array_slice($artistGenres, 0, 2);
+                }
+            ?>
+                <li 
+                    data-scroll-appear 
+                    style="padding-top: <?php echo $i * 6 ?>rem; transition-delay: <?php echo $i * 200; ?>ms;"
+                    class="front-page-artists"
+                >
+                    <a href="<?php echo get_permalink($artists[$i]->ID); ?>" class="flex flex-col gap-6 max-w-xs mx-auto sm:max-w-auto">
+                        <img 
+                            src="<?php echo get_the_post_thumbnail_url($artists[$i]->ID, 'large') ?>" 
+                            alt="<?php echo $artists[$i]->post_title; ?>" 
+                            class="w-full rounded-3xl shadow-card object-cover"
+                        >
+                        <div class="flex flex-col gap-3">
+                            <h2 class="font-heading text-heading-sm sm:text-heading-xs">
+                                <?php echo $artists[$i]->post_title; ?>
+                            </h2>
+                            <?php if ($artistGenres) : ?>
+                                <ul class="flex flex-wrap gap-3 items-center">
+                                    <?php
+                                    foreach ($artistGenres as $genre) :
+                                        ?>
+                                        <li>
+                                            <?php echo $genre->name; ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </div>
+                    </a>
+                </li>
+            <?php
+            endfor;
+            ?>
+        </ul>
+    </div>
+</section>
+
+<?php require_once get_template_directory() . '/partials/about-introduction.php'; ?>
 
 <?php
 get_footer();

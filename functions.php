@@ -109,6 +109,7 @@ require_once get_template_directory() . '/partials/functions/custom-user-fields.
 // enqueue scripts
 function amplify_enqueue_scripts() {
     wp_enqueue_script( 'hamburger-menu', get_template_directory_uri() . '/assets/js/hamburger-menu.js', array(), '1.0', true );
+    wp_enqueue_script( 'scroll-appear', get_template_directory_uri() . '/assets/js/scroll-appear.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'amplify_enqueue_scripts' );
 
