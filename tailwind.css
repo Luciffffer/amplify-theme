@@ -237,14 +237,38 @@ input::placeholder {
     @apply opacity-100 translate-y-0;
 }
 
+@media screen and (max-width: 1024px) {
+    .front-page-artists {
+        padding-top: 0px !important;
+    }
+}
+
+.about-introduction-translate > * {
+    transition: opacity 0.7s, transform 0.7s;
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+}
+
+.about-introduction-hidden {
+    pointer-events: none;
+}
+
+.about-introduction-hidden > * {
+    opacity: 0;
+    transform: translateY(1rem);
+}
+
+.about-introduction-hidden > img {
+    opacity: 1;
+    transform: translateY(0) translateX(100%);
+}
+
 @media(prefers-reduced-motion) {
     [data-scroll-appear] {
         @apply transition-none;
     }
-}
 
-@media screen and (max-width: 1024px) {
-    .front-page-artists {
-        padding-top: 0px !important;
+    .about-introduction-translate {
+        @apply transition-none;
     }
 }

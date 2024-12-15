@@ -163,11 +163,11 @@ $webinars = $webinars->posts;
                     style="padding-top: <?php echo $i * 6 ?>rem; transition-delay: <?php echo $i * 200; ?>ms;"
                     class="front-page-artists"
                 >
-                    <a href="<?php echo get_permalink($artists[$i]->ID); ?>" class="flex flex-col gap-6 max-w-xs mx-auto sm:max-w-auto">
+                    <a href="<?php echo get_permalink($artists[$i]->ID); ?>" class="flex flex-col gap-6 max-w-xs mx-auto sm:max-w-auto group/article">
                         <img 
                             src="<?php echo get_the_post_thumbnail_url($artists[$i]->ID, 'large') ?>" 
                             alt="<?php echo $artists[$i]->post_title; ?>" 
-                            class="w-full rounded-3xl shadow-card object-cover"
+                            class="w-full rounded-3xl shadow-card object-cover group-hover/article:rounded-md group-hover/article:shadow-none transition-all duration-300"
                         >
                         <div class="flex flex-col gap-3">
                             <h2 class="font-heading text-heading-sm sm:text-heading-xs">
