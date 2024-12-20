@@ -370,10 +370,10 @@ pageStarter(ob_get_clean());
             $artistGenres = get_the_terms($artist->ID, 'genre');
             $artistLink = get_the_permalink($artist->ID);
             ?>
-            <li class="flex flex-col gap-6 justify-between">
+            <li class="flex flex-col gap-6 justify-between group/artist">
                 <div class="flex flex-col gap-6">
                     <a href="<?php echo $artistLink; ?>">
-                        <img src="<?php echo $artistImage; ?>" alt="<?php echo $artistName; ?>" class="w-full rounded-3xl shadow-card object-cover">
+                        <img src="<?php echo $artistImage; ?>" alt="<?php echo $artistName; ?>" class="w-full rounded-3xl shadow-card object-cover group-hover/artist:shadow-none transition-all group-hover/artist:rounded-md duration-300">
                     </a>
                     <div class="flex flex-col gap-3">
                         <h2 class="font-heading text-heading-sm">

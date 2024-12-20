@@ -87,7 +87,6 @@ window.addEventListener('resize', (e) => {
 const dots = document.querySelectorAll('[data-lucan] > *');
 const randomOrder = Array.from({ length: 20 }, () => Math.floor(Math.random() * 4));
 let i = 0;
-console.log(randomOrder);
 
 setInterval(() => {
     dots.forEach((dot, index) => {
